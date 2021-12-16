@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6265630f4fb4477291ff38ad833f31cf" Name="Diagram1">
+        <EntityTypeShape EntityType="DBModel.Account" Width="1.5" PointX="3" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.AccountCategory" Width="1.5" PointX="0.75" PointY="26.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Article" Width="1.5" PointX="12.875" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.ArticleCategory" Width="1.5" PointX="5.25" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Client" Width="1.5" PointX="7.5" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.ClientCategory" Width="1.5" PointX="5.25" PointY="26.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Contact" Width="1.5" PointX="7.5" PointY="31.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.ContactCategory" Width="1.5" PointX="5.25" PointY="35.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Order" Width="1.5" PointX="9.75" PointY="26.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.OrderDetail" Width="1.5" PointX="12" PointY="27.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Picture" Width="1.5" PointX="7.5" PointY="35.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.PictureCategory" Width="1.5" PointX="5.25" PointY="43.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Product" Width="1.5" PointX="10.25" PointY="31.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.ProductCategory" Width="1.5" PointX="7.5" PointY="42.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.ProductComment" Width="1.5" PointX="9.75" PointY="23.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.ProductMainCategory" Width="1.5" PointX="5.25" PointY="58.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.ProductVote" Width="1.5" PointX="12.75" PointY="24.5" IsExpanded="true" />
+        <AssociationConnector Association="DBModel.FK__Account__Account__1273C1CD" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__Article__CreateB__239E4DCF" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__ArticleCa__Creat__1FCDBCEB" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__ClientCat__Creat__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__Contact__Approve__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__ContactCa__Creat__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__Picture__CreateB__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__PictureCa__Creat__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__Product__CreateB__1CF15040" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__ProductCa__Creat__1920BF5C" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__ProductMa__Creat__15502E78" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__Article__Article__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__Client__ClientCa__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__Order__ClientID__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__ProductCo__Clien__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__ProductVo__Clien__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__Contact__Contact__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__OrderDeta__Order__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__OrderDeta__Produ__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__Picture__Picture__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__Product__Product__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__ProductCo__Produ__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__ProductVo__Produ__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK__ProductCa__Produ__403A8C7D" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

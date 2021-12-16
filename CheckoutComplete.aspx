@@ -1,0 +1,33 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="CheckoutComplete.aspx.cs" Inherits="CheckoutComplete" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="content" runat="Server">
+    <main id="tg-main" class="tg-main tg-haslayout">
+        <div class="tg-sectionspace tg-haslayout">
+            <div class="wrapper-login">
+                <div class="clear" style="clear: both;"></div>
+                <div class="main-account-login main-account-login-height">
+                    <div class="container-login">
+                        <div class="account-content-login">
+                            <div class="login-item-login">
+                                <div class="account-form">
+                                    <div>
+                                        <div class="tittle" style="text-align: center;">
+                                            <h2>HOÀN TẤT THANH TOÁN</h2>
+                                            <p>Xin chúc mừng, đơn hàng của bạn đã được lập. </p>
+                                            <p>Bạn có thể thanh toán sau khi nhận được hàng tại nhà.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="footer" runat="Server">
+</asp:Content>
+

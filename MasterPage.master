@@ -1,0 +1,35 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<%@ Register Src="~/UserControls/ucCSS.ascx" TagPrefix="uc1" TagName="ucCSS" %>
+<%@ Register Src="~/UserControls/ucScript.ascx" TagPrefix="uc1" TagName="ucScript" %>
+<%@ Register Src="~/UserControls/ucFooter.ascx" TagPrefix="uc1" TagName="ucFooter" %>
+<%@ Register Src="~/UserControls/ucHeader.ascx" TagPrefix="uc1" TagName="ucHeader" %>
+
+
+
+
+
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="zxx">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+    <uc1:ucCSS runat="server" ID="ucCSS" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager runat="server" />
+        <div id="tg-wrapper" class="tg-wrapper tg-haslayout">
+            <uc1:ucHeader runat="server" ID="ucHeader" />
+            <%-- Main --%>
+            <asp:ContentPlaceHolder ID="content" runat="server"></asp:ContentPlaceHolder>
+            <%-- End Main --%>
+            <uc1:ucFooter runat="server" ID="ucFooter" />
+            <uc1:ucScript runat="server" ID="ucScript" />
+            <asp:ContentPlaceHolder ID="footer" runat="server"></asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
