@@ -1,5 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="NewsDetail.aspx.cs" Inherits="NewsDetail" %>
 
+<%@ Register Src="~/UserControls/ucSearchMini.ascx" TagPrefix="uc1" TagName="ucSearchMini" %>
+<%@ Register Src="~/UserControls/ucLeftCategory.ascx" TagPrefix="uc1" TagName="ucLeftCategory" %>
+<%@ Register Src="~/UserControls/ucLeftArticle.ascx" TagPrefix="uc1" TagName="ucLeftArticle" %>
+<%@ Register Src="~/UserControls/ucBestSellingProducts.ascx" TagPrefix="uc1" TagName="ucBestSellingProducts" %>
+
+
+
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="Server">
@@ -276,99 +285,10 @@
                     </div>
                     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 pull-right">
                         <aside id="tg-sidebar" class="tg-sidebar">
-                            <div class="tg-widget tg-widgetsearch">
-                                <div class="tg-formtheme tg-formsearch">
-                                    <div class="form-group">
-                                        <button type="submit"><i class="icon-magnifier"></i></button>
-                                        <input autocomplete="off" type="search" name="search" class="form-group" placeholder="Tìm kiếm tin tức...">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tg-widget tg-catagories">
-                                <div class="tg-widgettitle">
-                                    <h3>Loại tin tức</h3>
-                                </div>
-                                <div class="tg-widgetcontent">
-                                    <ul>
-                                        <li><a href="newslist.html"><span>Mới nhất</span><em>25</em></a></li>
-                                        <li><a href="newslist.html"><span>Sản phẩm mới</span><em>56</em></a></li>
-                                        <li><a href="newslist.html"><span>Đánh giá</span><em>54</em></a></li>
-                                        <li><a href="newslist.html"><span>Mẹo hay</span><em>47</em></a></li>
-                                        <li><a href="newslist.html"><span>Tư vấn</span><em>54</em></a></li>
-                                        <li><a href="newslist.html"><span>Sự kiện</span><em>44</em></a></li>
-                                        <li><a href="newslist.html"><span>Khuyến mãi</span><em>65</em></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="tg-widget tg-widgettrending">
-                                <div class="tg-widgettitle">
-                                    <h3>Thảo luận nhiều</h3>
-                                </div>
-                                <div class="tg-widgetcontent">
-                                    <ul>
-                                        <li>
-                                            <article class="tg-post">
-                                                <figure>
-                                                    <a class="left-article-img" href="newsdetail.html">
-                                                        <img src="images/article/images-1.jpg" alt="image description" />
-                                                    </a>
-                                                </figure>
-                                                <div class="tg-postcontent">
-                                                    <div class="tg-posttitle">
-                                                        <h3><a class="tilte-left-widgetcontent" href="newsdetail.html">Chỉ có tại Evo Mobile: Mách bạn cách mua bàn phím Huawei Matepad 11 trị giá 2.48 triệu đồng với giá chỉ 10.000 đồng</a></h3>
-                                                    </div>
-                                                    <span class="tg-bookwriter">Đăng bởi: <a href="newsdetail.html">Thái Hảo</a></span>
-                                                </div>
-                                            </article>
-                                        </li>
-                                        <li>
-                                            <article class="tg-post">
-                                                <figure>
-                                                    <a class="left-article-img" href="newsdetail.html">
-                                                        <img src="images/article/images-2.jpg" alt="image description" />
-                                                    </a>
-                                                </figure>
-                                                <div class="tg-postcontent">
-                                                    <div class="tg-posttitle">
-                                                        <h3><a class="tilte-left-widgetcontent" href="newsdetail.html">Chỉ có tại Evo Mobile: Mách bạn cách mua bàn phím Huawei Matepad 11 trị giá 2.48 triệu đồng với giá chỉ 10.000 đồng</a></h3>
-                                                    </div>
-                                                    <span class="tg-bookwriter">Đăng bởi: <a href="newsdetail.html">Thái Hảo</a></span>
-                                                </div>
-                                            </article>
-                                        </li>
-                                        <li>
-                                            <article class="tg-post">
-                                                <figure>
-                                                    <a class="left-article-img" href="newsdetail.html">
-                                                        <img src="images/article/images-3.jpg" alt="image description" />
-                                                    </a>
-                                                </figure>
-                                                <div class="tg-postcontent">
-                                                    <div class="tg-posttitle">
-                                                        <h3><a class="tilte-left-widgetcontent" href="newsdetail.html">Chỉ có tại Evo Mobile: Mách bạn cách mua bàn phím Huawei Matepad 11 trị giá 2.48 triệu đồng với giá chỉ 10.000 đồng</a></h3>
-                                                    </div>
-                                                    <span class="tg-bookwriter">Đăng bởi: <a href="newsdetail.html">Thái Hảo</a></span>
-                                                </div>
-                                            </article>
-                                        </li>
-                                        <li>
-                                            <article class="tg-post">
-                                                <figure>
-                                                    <a class="left-article-img" href="newsdetail.html">
-                                                        <img src="images/article/images-4.jpg" alt="image description" />
-                                                    </a>
-                                                </figure>
-                                                <div class="tg-postcontent">
-                                                    <div class="tg-posttitle">
-                                                        <h3><a class="tilte-left-widgetcontent" href="newsdetail.html">Chỉ có tại Evo Mobile: Mách bạn cách mua bàn phím Huawei Matepad 11 trị giá 2.48 triệu đồng với giá chỉ 10.000 đồng</a></h3>
-                                                    </div>
-                                                    <span class="tg-bookwriter">Đăng bởi: <a href="newsdetail.html">Thái Hảo</a></span>
-                                                </div>
-                                            </article>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                            <uc1:ucSearchMini runat="server" ID="ucSearchMini" />
+                            <uc1:ucLeftCategory runat="server" ID="ucLeftCategory" />
+                            <uc1:ucLeftArticle runat="server" ID="ucLeftArticle" />
+                            <uc1:ucBestSellingProducts runat="server" ID="ucBestSellingProducts" />
                             <!--<div class="tg-widget tg-widgetinstagram">
                                         <div class="tg-widgettitle">
                                             <h3>Instagram</h3>
@@ -432,72 +352,11 @@
                                             </ul>
                                         </div>
                                     </div>-->
-                            <div class="tg-widget tg-widgetblogers">
-                                <div class="tg-widgettitle">
-                                    <h3>Sản phẩm bán chạy</h3>
-                                </div>
-                                <div class="tg-widgetcontent">
-                                    <ul>
-                                        <li>
-                                            <div class="tg-author">
-                                                <figure>
-                                                    <a href="productdetail.html" class="img-left-widgetcontent">
-                                                        <img alt="image description" src="images/products/iphone-12-pro-max-xanh-duong-new-600x600-600x600-d0fd627a-ffa5-4297-9db4-e09f4cd78f6c.jpg" />
-                                                    </a>
-                                                </figure>
-                                                <div class="tg-authorcontent">
-                                                    <h2 class="tilte-left-widgetcontent"><a href="productdetail.html">iPhone 12 Pro Max Xanh Dương New</a></h2>
-                                                    <span>33.490.000đ</span>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="tg-author">
-                                                <figure>
-                                                    <a href="productdetail.html" class="img-left-widgetcontent">
-                                                        <img alt="image description" src="images/products/iphone-12-pro-max-xanh-duong-new-600x600-600x600-d0fd627a-ffa5-4297-9db4-e09f4cd78f6c.jpg" />
-                                                    </a>
-                                                </figure>
-                                                <div class="tg-authorcontent">
-                                                    <h2 class="tilte-left-widgetcontent"><a href="productdetail.html">iPhone 12 Pro Max Xanh Dương New</a></h2>
-                                                    <span>33.490.000đ</span>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="tg-author">
-                                                <figure>
-                                                    <a href="productdetail.html" class="img-left-widgetcontent">
-                                                        <img alt="image description" src="images/products/iphone-12-pro-max-xanh-duong-new-600x600-600x600-d0fd627a-ffa5-4297-9db4-e09f4cd78f6c.jpg" />
-                                                    </a>
-                                                </figure>
-                                                <div class="tg-authorcontent">
-                                                    <h2 class="tilte-left-widgetcontent"><a href="productdetail.html">iPhone 12 Pro Max Xanh Dương New</a></h2>
-                                                    <span>33.490.000đ</span>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="tg-author">
-                                                <figure>
-                                                    <a href="productdetail.html" class="img-left-widgetcontent">
-                                                        <img alt="image description" src="images/products/iphone-12-pro-max-xanh-duong-new-600x600-600x600-d0fd627a-ffa5-4297-9db4-e09f4cd78f6c.jpg" />
-                                                    </a>
-                                                </figure>
-                                                <div class="tg-authorcontent">
-                                                    <h2 class="tilte-left-widgetcontent"><a href="productdetail.html">iPhone 12 Pro Max Xanh Dương New</a></h2>
-                                                    <span>33.490.000đ</span>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                            
                         </aside>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
     </main>
 </asp:Content>

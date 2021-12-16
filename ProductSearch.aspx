@@ -1,12 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ProductHot.aspx.cs" Inherits="ProductHot" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ProductSearch.aspx.cs" Inherits="ProductSearch" %>
 
 <%@ Register Src="~/UserControls/ucSearchMini.ascx" TagPrefix="uc1" TagName="ucSearchMini" %>
 <%@ Register Src="~/UserControls/ucLeftCategory.ascx" TagPrefix="uc1" TagName="ucLeftCategory" %>
 <%@ Register Src="~/UserControls/ucLeftArticle.ascx" TagPrefix="uc1" TagName="ucLeftArticle" %>
 <%@ Register Src="~/UserControls/ucBestSellingProducts.ascx" TagPrefix="uc1" TagName="ucBestSellingProducts" %>
 <%@ Register Src="~/UserControls/ucPagination.ascx" TagPrefix="uc1" TagName="ucPagination" %>
-<%@ Register Src="~/UserControls/ucProductHot.ascx" TagPrefix="uc1" TagName="ucProductHot" %>
-
 
 
 
@@ -21,10 +19,10 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="tg-innerbannercontent">
-                        <h1>Hot Deal</h1>
+                        <h1>Kết quả tìm kiếm</h1>
                         <ol class="tg-breadcrumb">
-                            <li><a href="indexv2.html">Trang chủ</a></li>
-                            <li class="tg-active">Hot Deal</li>
+                            <li><a href="/">Trang chủ</a></li>
+                            <li class="tg-active">Kết quả tìm kiếm</li>
                         </ol>
                     </div>
                 </div>
@@ -32,9 +30,6 @@
         </div>
     </div>
     <main id="tg-main" class="tg-main tg-haslayout">
-        <!--************************************
-                    News Grid Start
-            *************************************-->
         <div class="tg-sectionspace tg-haslayout">
             <div class="container">
                 <div class="row">
@@ -42,11 +37,43 @@
                         <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 pull-right">
                             <div id="tg-content" class="tg-content">
                                 <div class="tg-products">
-                                    <div class="tg-sectionhead">
-                                        <h2><span>People’s Choice</span>Hot Deal</h2>
-                                    </div>
-                                    <uc1:ucProductHot runat="server" id="ucProductHot" />
-
+                                    <%--<div class="tg-sectionhead">
+                                        <h2><span>People’s Choice</span>Tất cả sản phẩm</h2>
+                                    </div>--%>
+                                    <%--<div class="tg-featurebook alert featurebook-container" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        <div class="tg-featureditm">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 hidden-sm hidden-xs">
+                                                    <figure>
+                                                        <img alt="image description" src="images/products/iphone-12-pro-max-xanh-duong-new-600x600-600x600-d0fd627a-ffa5-4297-9db4-e09f4cd78f6c.jpg" />
+                                                    </figure>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 right-content-featureditm">
+                                                    <div class="tg-featureditmcontent">
+                                                        <div class="tg-themetagbox"><span class="tg-themetag">Nổi bật</span></div>
+                                                        <div class="tg-booktitle">
+                                                            <h3><a href="javascript:void(0);">iPhone 12 Pro Max Chính Hãng (VN/A)</a></h3>
+                                                        </div>
+                                                        <span class="tg-bookwriter"><a href="javascript:void(0);">Online Giá Rẻ</a></span>
+                                                        <span class="tg-stars"><span></span></span>
+                                                        <div class="tg-priceandbtn">
+                                                            <span class="tg-bookprice">
+                                                                <ins>33.590.000đ</ins>
+                                                                <del>34.590.000đ</del>
+                                                            </span>
+                                                            <a class="tg-btn tg-btnstyletwo tg-active" href="javascript:void(0);">
+                                                                <i class="fa fa-shopping-basket"></i>
+                                                                <em>Thêm vào giỏ hàng</em>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>--%>
                                     <div class="tg-productgrid">
                                         <div class="tg-refinesearch">
                                             <span>Bộ lọc</span>
@@ -86,6 +113,7 @@
                                                             </select>
                                                         </span>
                                                     </div>
+
                                                     <div class="form-group">
                                                         <label>Bộ nhớ trong:</label>
                                                         <span class="tg-select">
@@ -141,6 +169,7 @@
                                                 </fieldset>
                                             </div>
                                         </div>
+                                        <%-- Product --%>
                                         <asp:Repeater ID="Repeater_Main" runat="server">
                                             <ItemTemplate>
                                                 <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
@@ -162,9 +191,11 @@
                                                             </ul>
                                                             <div class="tg-themetagbox"><span class="tg-themetag">sale</span></div>
                                                             <div class="tg-booktitle">
-                                                                <h3> <a href='<%# "/ProductDetail.aspx?id={0}&title={1}".StringFormat(Eval("ProductID"), Eval("Title").ToUrlFormat()) %>'>
+                                                                <h3>
+                                                                    <a href='<%# "/ProductDetail.aspx?id={0}&title={1}".StringFormat(Eval("ProductID"), Eval("Title").ToUrlFormat()) %>'>
                                                                         <%# Eval("Title") %>
-                                                                    </a></h3>
+                                                                    </a>
+                                                                </h3>
                                                             </div>
                                                             <span class="tg-bookwriter"><a href="javascript:void(0);">Online giá rẻ</a></span>
                                                             <span class="tg-stars"><span></span></span>
@@ -195,7 +226,6 @@
                                                 </div>
                                             </ItemTemplate>
                                         </asp:Repeater>
-
                                     </div>
                                     <div class="pagination-footer">
                                         <uc1:ucPagination runat="server" ID="ucPagination" />
@@ -209,15 +239,58 @@
                                 <uc1:ucLeftCategory runat="server" ID="ucLeftCategory" />
                                 <uc1:ucLeftArticle runat="server" ID="ucLeftArticle" />
                                 <uc1:ucBestSellingProducts runat="server" ID="ucBestSellingProducts" />
+
+                                <!--<div class="tg-widget tg-widgetblogers">
+                                        <div class="tg-widgettitle">
+                                            <h3>Top Bloogers</h3>
+                                        </div>
+                                        <div class="tg-widgetcontent">
+                                            <ul>
+                                                <li>
+                                                    <div class="tg-author">
+                                                        <figure><a href="javascript:void(0);"><img src="images/author/imag-03.jpg" alt="image description"></a></figure>
+                                                        <div class="tg-authorcontent">
+                                                            <h2><a href="javascript:void(0);">Jude Morphew</a></h2>
+                                                            <span>21,658 Published Books</span>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="tg-author">
+                                                        <figure><a href="javascript:void(0);"><img src="images/author/imag-04.jpg" alt="image description"></a></figure>
+                                                        <div class="tg-authorcontent">
+                                                            <h2><a href="javascript:void(0);">Jude Morphew</a></h2>
+                                                            <span>21,658 Published Books</span>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="tg-author">
+                                                        <figure><a href="javascript:void(0);"><img src="images/author/imag-05.jpg" alt="image description"></a></figure>
+                                                        <div class="tg-authorcontent">
+                                                            <h2><a href="javascript:void(0);">Jude Morphew</a></h2>
+                                                            <span>21,658 Published Books</span>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="tg-author">
+                                                        <figure><a href="javascript:void(0);"><img src="images/author/imag-06.jpg" alt="image description"></a></figure>
+                                                        <div class="tg-authorcontent">
+                                                            <h2><a href="javascript:void(0);">Jude Morphew</a></h2>
+                                                            <span>21,658 Published Books</span>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>-->
                             </aside>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!--************************************
-                    News Grid End
-            *************************************-->
     </main>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="footer" runat="Server">

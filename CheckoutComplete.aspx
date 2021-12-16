@@ -1,5 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="CheckoutComplete.aspx.cs" Inherits="CheckoutComplete" %>
 
+<%@ Register Src="~/UserControls/ucMessage.ascx" TagPrefix="uc1" TagName="ucMessage" %>
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="Server">
@@ -15,8 +18,9 @@
                                     <div>
                                         <div class="tittle" style="text-align: center;">
                                             <h2>HOÀN TẤT THANH TOÁN</h2>
-                                            <p>Xin chúc mừng, đơn hàng của bạn đã được lập. </p>
-                                            <p>Bạn có thể thanh toán sau khi nhận được hàng tại nhà.</p>
+                                            <div style="display: inline-block">
+                                                <uc1:ucMessage runat="server" ID="ucMessage" />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

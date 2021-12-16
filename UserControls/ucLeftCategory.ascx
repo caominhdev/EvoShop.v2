@@ -9,7 +9,7 @@
         <ul>
             <asp:Repeater ID="Repeater_Main" runat="server">
                 <ItemTemplate>
-                    <li><a href='<%# "/ProductType.aspx?sid={0}&title={1}".StringFormat(Eval("ProductMainCategoryID"), Eval("Title").ToUrlFormat()) %>'>
+                    <li><a href='<%# "/ProductType.aspx?mid={0}&title={1}".StringFormat(Eval("ProductMainCategoryID"), Eval("Title").ToUrlFormat()) %>'>
                         <span><%# Eval("Title") %></span>
                         <em>
                             <%--<%# Eval("") %>--%>

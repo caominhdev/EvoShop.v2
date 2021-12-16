@@ -4,6 +4,8 @@
 <%@ Register Src="~/UserControls/ucLeftCategory.ascx" TagPrefix="uc1" TagName="ucLeftCategory" %>
 <%@ Register Src="~/UserControls/ucLeftArticle.ascx" TagPrefix="uc1" TagName="ucLeftArticle" %>
 <%@ Register Src="~/UserControls/ucPagination.ascx" TagPrefix="uc1" TagName="ucPagination" %>
+<%@ Register Src="~/UserControls/ucSearchMini.ascx" TagPrefix="uc1" TagName="ucSearchMini" %>
+
 
 
 
@@ -208,10 +210,19 @@
                                                                     <%# Eval("OldPrice","{0:n0}₫") %>
                                                                 </del>
                                                             </span>
-                                                            <a class="tg-btn tg-btnstyletwo" href="javascript:void(0);">
-                                                                <i class="fa fa-shopping-basket"></i>
-                                                                <em>Thêm giỏ hàng</em>
-                                                            </a>
+                                                            <asp:UpdatePanel runat="server">
+                                                                <ContentTemplate>
+                                                                    <asp:LinkButton runat="server"
+                                                                        ID="LinkButton_Order"
+                                                                        OnClick="LinkButton_Order_Click"
+                                                                        ClientIDMode="AutoID"
+                                                                        CommandArgument='<%# Eval("ProductID") %>'
+                                                                        CommandName="1" class="tg-btn tg-btnstyletwo">
+                                                                        <i class="fa fa-shopping-basket"></i>
+                                                                        <em>Thêm giỏ hàng</em>
+                                                                    </asp:LinkButton>
+                                                                </ContentTemplate>
+                                                            </asp:UpdatePanel>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -226,18 +237,10 @@
                         </div>
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 pull-left">
                             <aside id="tg-sidebar" class="tg-sidebar">
-                                <div class="tg-widget tg-widgetsearch">
-                                    <div class="tg-formtheme tg-formsearch">
-                                        <div class="form-group">
-                                            <button type="submit"><i class="icon-magnifier"></i></button>
-                                            <input autocomplete="off" type="search" name="search" class="form-group" placeholder="Tìm kiếm...">
-                                        </div>
-                                    </div>
-                                </div>
+                                <uc1:ucSearchMini runat="server" ID="ucSearchMini" />
                                 <uc1:ucLeftCategory runat="server" ID="ucLeftCategory" />
                                 <uc1:ucLeftArticle runat="server" ID="ucLeftArticle" />
                                 <uc1:ucBestSellingProducts runat="server" ID="ucBestSellingProducts" />
-
                                 <div class="tg-widget tg-widgetinstagram">
                                     <div class="tg-widgettitle">
                                         <h3>Instagram</h3>

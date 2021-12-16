@@ -1,5 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ContactUs.aspx.cs" Inherits="ContactUs" %>
 
+<%@ Register Src="~/UserControls/ucMessage.ascx" TagPrefix="uc1" TagName="ucMessage" %>
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="Server">
@@ -20,24 +23,29 @@
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="tg-formtheme tg-formcontactus">
                             <fieldset>
-                                <div class="form-group">
-                                    <input autocomplete="off" type="text" name="name" class="form-control" placeholder="Họ và Tên">
-                                </div>
-                                <div class="form-group">
-                                    <input autocomplete="off" type="text" name="phone" class="form-control" placeholder="Số Điện Thoại">
-                                </div>
-                                <div class="form-group">
-                                    <input autocomplete="off" type="email" name="email" class="form-control" placeholder="Email">
-                                </div>
-                                <div class="form-group">
-                                    <input autocomplete="off" type="text" name="address" class="form-control" placeholder="Địa chỉ">
-                                </div>
-                                <div class="form-group tg-hastextarea">
-                                    <textarea placeholder="Nội dung"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="tg-btn tg-active">Gửi</button>
-                                </div>
+                                <asp:Panel DefaultButton="LinkButton_Send" runat="server">
+                                    <div class="form-group">
+                                        <input runat="server" id="input_FullName" autocomplete="off" type="text" class="form-control" placeholder="Họ và Tên">
+                                    </div>
+                                    <div class="form-group">
+                                        <input runat="server" id="input_Mobile" autocomplete="off" type="text" class="form-control" placeholder="Số Điện Thoại">
+                                    </div>
+                                    <div class="form-group">
+                                        <input runat="server" id="input_Email" autocomplete="off" type="text" class="form-control" placeholder="Email">
+                                    </div>
+                                    <div class="form-group">
+                                        <input runat="server" id="input_Address" autocomplete="off" type="text" class="form-control" placeholder="Địa chỉ">
+                                    </div>
+                                    <div class="form-group tg-hastextarea">
+                                        <textarea runat="server" id="textarea_Desc" placeholder="Nội dung"></textarea>
+                                    </div>
+                                    <div class="form-group tg-hastextarea">
+                                        <uc1:ucMessage runat="server" ID="ucMessage" />
+                                    </div>
+                                    <div class="form-group">
+                                        <asp:LinkButton runat="server" ID="LinkButton_Send" OnClick="LinkButton_Send_Click" type="submit" class="tg-btn tg-active">Gửi</asp:LinkButton>
+                                    </div>
+                                </asp:Panel>
                             </fieldset>
                         </div>
                         <div class="tg-contactdetail">

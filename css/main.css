@@ -1561,7 +1561,7 @@ body.tg-comingsoonpage .tg-wrapper {
     margin-right: 20px;
 }
 
-.tg-formsearch fieldset button {
+.tg-formsearch fieldset a {
     top: 0;
     right: 0;
     z-index: 2;
@@ -1953,7 +1953,7 @@ li.menu-item-has-mega-menu {
         border: 1px solid #dbdbdb;
     }
 
-    .tg-headervtwo .tg-formsearch fieldset button {
+    .tg-headervtwo .tg-formsearch fieldset a {
         border: 0;
         width: auto;
         color: #fff;
@@ -3717,7 +3717,7 @@ li.menu-item-has-mega-menu {
         height: 50px;
     }
 
-    .tg-widgetsearch .tg-formsearch .form-group button {
+    .tg-widgetsearch .tg-formsearch .form-group a {
         top: 50%;
         z-index: 2;
         color: #666;

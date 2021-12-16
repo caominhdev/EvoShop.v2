@@ -44,7 +44,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <strong class="tg-logo">
-                        <a href="/">
+                        <a href="/Default.aspx">
                             <img src="images/logo_mobile/logo1.png" />
                         </a>
                     </strong>
@@ -82,15 +82,15 @@
                                     </asp:UpdatePanel>
                                     <i class="icon-cart"></i>
                                 </a>
-                                <asp:UpdatePanel ClientIDMode="AutoID" runat="server">
+                                <asp:UpdatePanel runat="server">
                                     <ContentTemplate>
                                         <div class="dropdown-menu tg-themedropdownmenu" aria-labelledby="tg-minicart">
                                             <div class="tg-minicartbody">
-                                                <asp:Repeater ID="Repeater_CartItem" ClientIDMode="AutoID" runat="server">
+                                                <asp:Repeater ID="Repeater_CartItem" runat="server">
                                                     <ItemTemplate>
                                                         <div class="tg-minicarproduct">
                                                             <figure>
-                                                                <img class="tg-minicarproduct-image-product" alt="image description" src="<%# Eval("Avatar") %>" />
+                                                                <img class="tg-minicarproduct-image-product" src="<%# Eval("Avatar") %>" />
                                                                 <%--<img alt="image description" src="images/products/iphone-12-pro-max-xanh-duong-new-600x600-600x600-d0fd627a-ffa5-4297-9db4-e09f4cd78f6c.jpg" />--%>
                                                             </figure>
                                                             <div class="tg-minicarproductdata">

@@ -12,7 +12,7 @@
                     <li>
                         <article class="tg-post">
                             <figure>
-                                <a class="left-article-img" href='<%# "ArticleDetail.aspx?id={0}&title={1}"
+                                <a class="left-article-img" href='<%# "NewsDetail.aspx?id={0}&title={1}"
                                         .StringFormat(Eval("ArticleID"), Eval("Title")
                                         .ToUrlFormat()) %>'>
                                     <img src="<%# Eval("Avatar") %>"/>
@@ -20,7 +20,7 @@
                             </figure>
                             <div class="tg-postcontent">
                                 <div class="tg-posttitle">
-                                    <h3><a href='<%# "ArticleDetail.aspx?id={0}&title={1}"
+                                    <h3><a href='<%# "NewsDetail.aspx?id={0}&title={1}"
                                         .StringFormat(Eval("ArticleID"), Eval("Title")
                                         .ToUrlFormat()) %>'><%# Eval("Title").Left(50, true, true) %></a></h3>
                                 </div>

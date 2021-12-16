@@ -27,8 +27,8 @@ public partial class ucMainMenu : System.Web.UI.UserControl
                 x.ProductMainCategoryID,
                 x.Title
             });
-        Repeater_Main.DataSource = query.ToList();
-        Repeater_Main.DataBind();
+        Repeater_ProductMainCategory.DataSource = query.ToList();
+        Repeater_ProductMainCategory.DataBind();
     }
     public void LoadCategory()
     {

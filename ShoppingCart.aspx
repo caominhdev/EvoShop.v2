@@ -65,7 +65,7 @@
                         <div runat="server" id="div_Amount" class="totals-value"></div>
                     </div>
                 </div>
-                <button class="checkout">THANH TOÁN</button>
+                <a href="Checkout.aspx" class="checkout">THANH TOÁN</a>
             </div>
         </div>
     </section>

@@ -14,8 +14,20 @@ public partial class ucSearchMini : System.Web.UI.UserControl
 
     protected void LinkButton_Search_Click(object sender, EventArgs e)
     {
-        string keyword = input_Keyword.Value.Trim();
-        string SearchURL = "Products.aspx?title=" + keyword + "";
-        Response.Redirect(SearchURL);
+        string keyword = input_Keyword.Value;
+        if (keyword.Contains("%20"))
+        {
+            keyword.Replace("%20", " ");
+        }
+        string url = "/ProductSearch.aspx?title=" + keyword + "";
+        //if (keyword = '%20')
+        //{
+        //    url = "/" ;
+        //}
+        if (keyword == string.Empty)
+        {
+            url = "/";
+        }
+        Response.Redirect(url);
     }
 }

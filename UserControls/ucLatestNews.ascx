@@ -6,7 +6,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="tg-sectionhead">
                     <h2><span>Bài báo mới nhất</span>Tin tức nổi bật</h2>
-                    <a class="tg-btn" href="newslist.html">Xem tất cả</a>
+                    <a class="tg-btn" href="/NewsList.aspx">Xem tất cả</a>
                 </div>
             </div>
             <div id="tg-postslider" class="tg-postslider tg-blogpost owl-carousel">
@@ -30,7 +30,7 @@
                                         </a>
                                     </h3>
                                 </div>
-                                <span class="tg-bookwriter">Đăng bởi: <a href="javascript:void(0);">Thái Hảo</a></span>
+                                <span class="tg-bookwriter">Đăng bởi: <a href="javascript:void(0);">  <%# Eval("CreateBy") %></a></span>
                                 <ul class="tg-postmetadata">
                                     <li><a href="javascript:void(0);"><i class="fa fa-comment-o"></i><i>415 Bình Luận</i></a></li>
                                     <li><a href="javascript:void(0);"><i class="fa fa-eye"></i><i>1565 Lượt xem</i></a></li>

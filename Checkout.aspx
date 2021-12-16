@@ -1,5 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Checkout.aspx.cs" Inherits="Checkout" %>
 
+<%@ Register Src="~/UserControls/ucMessage.ascx" TagPrefix="uc1" TagName="ucMessage" %>
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="Server">
@@ -18,38 +21,47 @@
                                             <p>Nhập thông tin giao hàng hoặc <span><a href="login.html" class="account-form-login">Đăng nhập</a></span> để lấy thông tin từ tài khoản.</p>
                                         </div>
                                         <label style="font-weight: 600;" for="name">Họ Tên</label>
-                                        <input autocomplete="off" type="text" name="name" id="name" placeholder="Nhập họ tên">
+                                        <input runat="server" id="input_FullName" autocomplete="off" type="text" name="name" placeholder="Nhập họ tên">
 
                                         <label style="font-weight: 600;" for="id">Số điện thoại</label>
-                                        <input autocomplete="off" type="text" name="id" id="id" placeholder="Nhập số điện thoại">
+                                        <input runat="server" id="input_Mobile" autocomplete="off" type="text" name="id" placeholder="Nhập số điện thoại">
 
                                         <label style="font-weight: 600;" for="address">Địa chỉ</label>
-                                        <input autocomplete="off" type="text" name="address" id="address" placeholder="Nhập địa chỉ">
+                                        <input runat="server" id="input_Address" autocomplete="off" type="text" name="address" placeholder="Nhập địa chỉ">
 
                                         <label style="font-weight: 600;" for="email">Email</label>
-                                        <input autocomplete="off" type="text" name="email" id="email" placeholder="Nhập Email">
+                                        <input runat="server" id="input_Email" autocomplete="off" type="text" name="email" placeholder="Nhập Email">
 
                                         <label style="font-weight: 600;" for="ghichu">Ghi chú</label>
-                                        <textarea placeholder="Nhập Ghi chú"></textarea>
+                                        <textarea runat="server" id="textarea_Note" placeholder="Nhập Ghi chú"></textarea>
+                                        <div style="display:inline-block">
+                                            <uc1:ucMessage runat="server" ID="ucMessage" />
+                                        </div>
 
                                         <div class="check-format">
                                             <label style="font-weight: 600;" for="address">Hình thức thanh toán</label>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="optradio" checked>Thanh toán tại nhà (Ship COD)</label>
+                                                    <input runat="server" checked name="payment" id="radio_PaymentAtHome" type="radio" />Thanh toán tại nhà (Ship COD)
+                                                </label>
                                             </div>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="optradio">Thanh toán trực tuyến (Qua Ngân Hàng)</label>
+                                                    <input runat="server" name="payment" id="radio_PaymentOnline" type="radio" />Thanh toán trực tuyến (Qua Ngân Hàng)</label>
                                             </div>
                                             <div class="radio disabled">
                                                 <label>
                                                     <input type="radio" name="optradio" disabled>Không trả</label>
                                             </div>
                                         </div>
-                                        <button class="button-margintop" type="submit">THANH TOÁN NGAY</button>
+                                        <asp:LinkButton runat="server"
+                                            ID="LinkButton_Checkout"
+                                            OnClick="LinkButton_Checkout_Click"
+                                            class="btn btn-primary button-margintop">Thanh toán ngay
+                                        </asp:LinkButton>
+
                                         <div class="back-index">
-                                            <a href="indexv2.html">Quay lại trang chủ</a>
+                                            <a href="Default.aspx">Quay lại trang chủ</a>
                                         </div>
                                     </div>
                                 </div>

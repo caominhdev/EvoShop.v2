@@ -20,7 +20,7 @@ public partial class ProductType : System.Web.UI.Page
     public void LoadData()
     {
         var id = Request.QueryString["id"].ToInt();
-        var sid = Request.QueryString["sid"].ToInt();
+        var mid = Request.QueryString["mid"].ToInt();
         DBEntities db = new DBEntities();
         var query = db.Products
                       .OrderBy(x => x.Position)
@@ -40,9 +40,9 @@ public partial class ProductType : System.Web.UI.Page
             query = query.Where(x => x.ProductID == id);
         }
 
-        if (sid > 0)
+        if (mid > 0)
         {
-            query = query.Where(x => x.ProductCategory.ProductMainCategoryID == sid);
+            query = query.Where(x => x.ProductCategory.ProductMainCategoryID == mid);
         }
         int pageSize = 12;
         int maxPage = 5;
@@ -50,7 +50,7 @@ public partial class ProductType : System.Web.UI.Page
         if (page <= 0)
             page = 1;
         int totalItems = query.Count();
-        string url = "~/ProductType.aspx?id={0}&sid={1}&page={2}".StringFormat(id, sid, "{0}");
+        string url = "~/ProductType.aspx?id={0}&mid={1}&page={2}".StringFormat(id, mid, "{0}");
         ucPagination.TotalItems = totalItems;
         ucPagination.CurrentPage = page;
         ucPagination.PageSize = pageSize;

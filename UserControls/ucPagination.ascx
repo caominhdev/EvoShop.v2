@@ -1,15 +1,15 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="CodeUtility.PaggingUtility" %>
 <nav>
     <ul class="pagination">
-        <li class="">
+        <li>
             <a runat="server" id="PageBack" aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
             </a>
         </li>
         <asp:Repeater ID="PageRepeater" runat="server">
             <ItemTemplate>
-                <li>
-                    <a runat="server" id="PageNumber" data-active="pagination__link active">1</a>
+                <li data-active="active">
+                    <a runat="server" id="PageNumber" data-active="active">1</a>
                 </li>
             </ItemTemplate>
         </asp:Repeater>

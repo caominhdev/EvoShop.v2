@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using CodeUtility;
 
-public partial class ProductHot : System.Web.UI.Page
+public partial class ProductSearch : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -17,12 +17,12 @@ public partial class ProductHot : System.Web.UI.Page
     }
     public void LoadData()
     {
-
         var id = Request.QueryString["id"].ToInt();
         var mid = Request.QueryString["mid"].ToInt();
+        string keyword = Request.QueryString["title"].ToSafetyString();
         DBEntities db = new DBEntities();
         var query = db.Products
-            .Where(x => x.Status == true)
+            .Where(x => x.Status == true && x.Title.Contains(keyword))
             .OrderBy(x => Guid.NewGuid())
             .Select(x => new
             {
@@ -34,6 +34,7 @@ public partial class ProductHot : System.Web.UI.Page
                 x.ProductCategory,
                 x.ProductCategoryID
             });
+
         if (id > 0)
         {
             query = query.Where(x => x.ProductID == id);
@@ -49,7 +50,7 @@ public partial class ProductHot : System.Web.UI.Page
         if (page <= 0)
             page = 1;
         int totalItems = query.Count();
-        string url = "~/ProductHot.aspx?id={0}&mid={1}&page={2}".StringFormat(id, mid, "{0}");
+        string url = "~/ProductSearch.aspx?id={0}&mid={1}&page={2}".StringFormat(id, mid, "{0}");
         ucPagination.TotalItems = totalItems;
         ucPagination.CurrentPage = page;
         ucPagination.PageSize = pageSize;
@@ -62,6 +63,7 @@ public partial class ProductHot : System.Web.UI.Page
 
     protected void LinkButton_Order_Click(object sender, EventArgs e)
     {
+
         Common.LinkButton_Order_Click(sender, e);
     }
 }

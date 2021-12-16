@@ -3,9 +3,14 @@
 <div class="tg-searchbox">
     <div class="tg-formtheme tg-formsearch">
         <fieldset>
-            <input autocomplete="off" type="text" name="search" class="typeahead form-control"
-                placeholder="Tìm kiếm Điện thoại, Laptop, Tablet,...">
-            <button type="submit" class="tg-btn">Tìm Kiếm</button>
+            <asp:Panel DefaultButton="LinkButton_Search" runat="server">
+                <input runat="server" id="input_Keyword" autocomplete="off" type="text" class="typeahead form-control"
+                    placeholder="Tìm kiếm Điện thoại, Laptop, Tablet,...">
+                <asp:LinkButton runat="server"
+                    ID="LinkButton_Search"
+                    OnClick="LinkButton_Search_Click"
+                    class="tg-btn" Text="Tìm kiếm" />
+            </asp:Panel>
             <div class="header__search-history">
                 <ul class="header__search-history-list">
                     <li class="header__search-history-item">

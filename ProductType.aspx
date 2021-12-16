@@ -4,6 +4,10 @@
 <%@ Register Src="~/UserControls/ucLeftCategory.ascx" TagPrefix="uc1" TagName="ucLeftCategory" %>
 <%@ Register Src="~/UserControls/ucLeftArticle.ascx" TagPrefix="uc1" TagName="ucLeftArticle" %>
 <%@ Register Src="~/UserControls/ucPagination.ascx" TagPrefix="uc1" TagName="ucPagination" %>
+<%@ Register Src="~/UserControls/ucSearchMini.ascx" TagPrefix="uc1" TagName="ucSearchMini" %>
+<%@ Register Src="~/UserControls/ucBestSellingProducts.ascx" TagPrefix="uc1" TagName="ucBestSellingProducts" %>
+
+
 
 
 
@@ -17,10 +21,10 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="tg-innerbannercontent">
-                        <h1 runat="server" id="h1_Title"></h1>
+                        <h1 runat="server" id="h1_Title">TabLet</h1>
                         <ol class="tg-breadcrumb">
                             <li><a href="Default.aspx">Trang chủ</a></li>
-                            <li class="tg-active">abc</li>
+                            <li class="tg-active">Loại Sản Phẩm</li>
                         </ol>
                     </div>
                 </div>
@@ -41,40 +45,7 @@
                                     <div class="tg-sectionhead">
                                         <h2><span>Loại sản phẩm</span>Loại Sản Phẩm</h2>
                                     </div>
-                                    <%--<div class="tg-featurebook alert featurebook-container" role="alert">
-                                                <button type="button" class="close" data-dismiss="alert" aria-label="close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                                <div class="tg-featureditm">
-                                                    <div class="row">
-                                                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 hidden-sm hidden-xs">
-                                                            <figure>
-                                                                <img alt="image description" src="images/products/iphone-12-pro-max-xanh-duong-new-600x600-600x600-d0fd627a-ffa5-4297-9db4-e09f4cd78f6c.jpg" />
-                                                            </figure>
-                                                        </div>
-                                                        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 right-content-featureditm">
-                                                            <div class="tg-featureditmcontent">
-                                                                <div class="tg-themetagbox"><span class="tg-themetag">nổi bật</span></div>
-                                                                <div class="tg-booktitle">
-                                                                    <h3><a href="javascript:void(0);">iphone 12 pro max chính hãng (vn/a)</a></h3>
-                                                                </div>
-                                                                <span class="tg-bookwriter"><a href="javascript:void(0);">online giá rẻ</a></span>
-                                                                <span class="tg-stars"><span></span></span>
-                                                                <div class="tg-priceandbtn">
-                                                                    <span class="tg-bookprice">
-                                                                        <ins>33.590.000đ</ins>
-                                                                        <del>34.590.000đ</del>
-                                                                    </span>
-                                                                    <a class="tg-btn tg-btnstyletwo tg-active" href="javascript:void(0);">
-                                                                        <i class="fa fa-shopping-basket"></i>
-                                                                        <em>thêm vào giỏ hàng</em>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>--%>
+
                                     <div class="tg-productgrid">
                                         <%--<div class="tg-refinesearch">
                                             <span>Bộ lọc</span>
@@ -219,82 +190,10 @@
                         </div>
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 pull-left">
                             <aside id="tg-sidebar" class="tg-sidebar">
-                                <div class="tg-widget tg-widgetsearch">
-                                    <div class="tg-formtheme tg-formsearch">
-                                        <div class="form-group">
-                                            <button type="submit"><i class="icon-magnifier"></i></button>
-                                            <input autocomplete="off" type="search" name="search" class="form-group" placeholder="Tìm kiếm...">
-                                        </div>
-                                    </div>
-                                </div>
+                                <uc1:ucSearchMini runat="server" ID="ucSearchMini" />
                                 <uc1:ucLeftCategory runat="server" ID="ucLeftCategory" />
                                 <uc1:ucLeftArticle runat="server" ID="ucLeftArticle" />
-
-                                <div class="tg-widget tg-widgetblogers">
-                                    <div class="tg-widgettitle">
-                                        <h3>Sản phẩm bán chạy</h3>
-                                    </div>
-                                    <div class="tg-widgetcontent">
-                                        <ul>
-                                            <li>
-                                                <div class="tg-author">
-                                                    <figure>
-                                                        <a href="productdetail.html" class="img-left-widgetcontent">
-                                                            <img alt="image description" src="images/products/iphone-12-pro-max-xanh-duong-new-600x600-600x600-d0fd627a-ffa5-4297-9db4-e09f4cd78f6c.jpg" />
-                                                        </a>
-                                                    </figure>
-                                                    <div class="tg-authorcontent">
-                                                        <h2 class="tilte-left-widgetcontent"><a href="productdetail.html">iPhone 12 Pro Max
-                                                                    Xanh Dương New</a></h2>
-                                                        <span>33.490.000đ</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="tg-author">
-                                                    <figure>
-                                                        <a href="productdetail.html" class="img-left-widgetcontent">
-                                                            <img alt="image description" src="images/products/iphone-12-pro-max-xanh-duong-new-600x600-600x600-d0fd627a-ffa5-4297-9db4-e09f4cd78f6c.jpg" />
-                                                        </a>
-                                                    </figure>
-                                                    <div class="tg-authorcontent">
-                                                        <h2 class="tilte-left-widgetcontent"><a href="productdetail.html">iPhone 12 Pro Max
-                                                                    Xanh Dương New</a></h2>
-                                                        <span>33.490.000đ</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="tg-author">
-                                                    <figure>
-                                                        <a href="productdetail.html" class="img-left-widgetcontent">
-                                                            <img alt="image description" src="images/products/iphone-12-pro-max-xanh-duong-new-600x600-600x600-d0fd627a-ffa5-4297-9db4-e09f4cd78f6c.jpg" />
-                                                        </a>
-                                                    </figure>
-                                                    <div class="tg-authorcontent">
-                                                        <h2 class="tilte-left-widgetcontent"><a href="productdetail.html">iPhone 12 Pro Max
-                                                                    Xanh Dương New</a></h2>
-                                                        <span>33.490.000đ</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="tg-author">
-                                                    <figure>
-                                                        <a href="productdetail.html" class="img-left-widgetcontent">
-                                                            <img alt="image description" src="images/products/iphone-12-pro-max-xanh-duong-new-600x600-600x600-d0fd627a-ffa5-4297-9db4-e09f4cd78f6c.jpg" />
-                                                        </a>
-                                                    </figure>
-                                                    <div class="tg-authorcontent">
-                                                        <h2 class="tilte-left-widgetcontent"><a href="productdetail.html">iPhone 12 Pro Max
-                                                                    Xanh Dương New</a></h2>
-                                                        <span>33.490.000đ</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                <uc1:ucBestSellingProducts runat="server" ID="ucBestSellingProducts" />
                                 <div class="tg-widget tg-widgetinstagram">
                                     <div class="tg-widgettitle">
                                         <h3>Instagram</h3>
@@ -358,7 +257,6 @@
                                         </ul>
                                     </div>
                                 </div>
-
                             </aside>
                         </div>
                     </div>

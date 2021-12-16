@@ -73,10 +73,10 @@
                 <a href="Products.aspx">Sản phẩm</a>
                 <ul class="sub-menu">
 
-                    <asp:Repeater ID="Repeater_ProductCategory" runat="server">
+                    <asp:Repeater ID="Repeater_ProductMainCategory" runat="server">
                         <ItemTemplate>
                             <li>
-                                <a href='<%# "/ProductType.aspx?sid={0}&title={1}".StringFormat(Eval("ProductMainCategoryID"), Eval("Title").ToUrlFormat()) %>'>
+                                <a href='<%# "/ProductType.aspx?mid={0}&title={1}".StringFormat(Eval("ProductMainCategoryID"), Eval("Title").ToUrlFormat()) %>'>
                                     <%# Eval("Title") %>
                                 </a>
                             </li>
@@ -92,7 +92,7 @@
                 <a href="NewsList.aspx">Tin tức</a>
             </li>
             <li><a href="ContactUs.aspx">Liên hệ</a></li>
-            <li class="menu-item-has-children">
+            <%--<li class="menu-item-has-children">
                 <a href="javascript:void(0);"><i class="icon-menu"></i></a>
                 <ul class="sub-menu">
                     <li class="menu-item-has-children">
@@ -106,7 +106,7 @@
                     <li><a href="404Error.aspx">404 Error</a></li>
                     <li><a href="#">Coming Soon</a></li>
                 </ul>
-            </li>
+            </li>--%>
         </ul>
     </div>
 </nav>
