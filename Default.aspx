@@ -21,62 +21,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="Server">
     <main id="tg-main" class="tg-main tg-haslayout">
-        <!--************************************
-                    Best Selling Start
-            *************************************-->
         <uc1:ucBestSelling runat="server" ID="ucBestSelling" />
-        <!--************************************
-                    Best Selling End
-            *************************************-->
-        <!--************************************
-                    Featured Item Start
-            *************************************-->
         <uc1:ucFeaturedItem runat="server" ID="ucFeaturedItem" />
-        <!--************************************
-                    Featured Item End
-            *************************************-->
-        <!--************************************
-                    New Release Start
-            *************************************-->
         <uc1:ucNewRelease runat="server" ID="ucNewRelease" />
-        <!--************************************
-                    New Release End
-            *************************************-->
-        <!--************************************
-                    Collection Count Start
-            *************************************-->
         <uc1:ucCollectionCount runat="server" ID="ucCollectionCount" />
-        <!--************************************
-                    Collection Count End
-            *************************************-->
-        <!--************************************
-                    Picked By Author Start
-            *************************************-->
         <uc1:ucPickedByAuthor runat="server" ID="ucPickedByAuthor" />
-        <!--************************************
-                    Picked By Author End
-            *************************************-->
-        <!--************************************
-                    Testimonials Start
-            *************************************-->
         <uc1:ucTestimonials runat="server" ID="ucTestimonials" />
-        <!--************************************
-                    Testimonials End
-            *************************************-->
-        <!--************************************
-                    Call to Action Start
-            *************************************-->
-        <!--************************************
-                    Call to Action End
-            *************************************-->
         <uc1:ucBrands runat="server" ID="ucBrands" />
-        <!--************************************
-                    Latest News Start
-            *************************************-->
         <uc1:ucLatestNews runat="server" ID="ucLatestNews" />
-        <!--************************************
-                    Latest News End
-            *************************************-->
     </main>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="footer" runat="Server">

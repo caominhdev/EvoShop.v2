@@ -11,7 +11,9 @@ html {
     height: 100%;
     position: relative;
 }
-
+html {
+    scroll-behavior: smooth;
+}
 body {
     color: #666;
     background: #fff;

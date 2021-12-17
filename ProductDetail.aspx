@@ -170,7 +170,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="tg-aboutauthor">
+                                                <%--<div class="tg-aboutauthor">
                                                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                                         <div class="tg-sectionhead">
                                                             <h2>About Author</h2>
@@ -178,7 +178,7 @@
                                                         <div class="tg-authorbox">
                                                             <%--<figure class="tg-authorimg">
                                                                 <img src="images/author/imag-24.jpg" alt="image description">
-                                                            </figure>--%>
+                                                            </figure>
                                                             <div class="tg-authorinfo">
                                                                 <div class="tg-authorhead">
                                                                     <div class="tg-leftarea">
@@ -197,14 +197,14 @@
                                                                         </ul>
                                                                     </div>
                                                                 </div>
-                                                                <%-- <div class="tg-description">
+                                                                <div class="tg-description">
                                                                     <p>Laborum sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis etation.</p>
                                                                 </div>
-                                                                <a class="tg-btn tg-active" href="javascript:void(0);">View All Books</a>--%>
+                                                                <a class="tg-btn tg-active" href="javascript:void(0);">View All Books</a>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div>--%>
                                                 <uc1:ucComment runat="server" id="ucComment" />
 
                                                 <uc1:ucReleatedProducts runat="server" ID="ucReleatedProducts" />
