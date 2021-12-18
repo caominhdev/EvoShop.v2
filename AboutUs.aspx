@@ -22,7 +22,7 @@
                                 </p>
                             </div>
                             <div class="tg-btns">
-                                <a class="tg-btn" href="contactus.html">Liên lạc với chúng tôi</a>
+                                <a class="tg-btn" href="Contactus.aspx">Liên lạc với chúng tôi</a>
                             </div>
                         </div>
                     </div>
@@ -42,21 +42,21 @@
     <!--************************************
                     Call to Action Start
             *************************************-->
-    <!--<section class="tg-parallax tg-bgcalltoaction tg-haslayout" data-z-index="-100" data-appear-top-offset="600" data-parallax="scroll" data-image-src="images/parallax/bgparallax-06.jpg">
-                <div class="tg-sectionspace tg-haslayout">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                <div class="tg-calltoaction">
-                                    <h2>Xem sản phẩm</h2>
-                                    <h3>Lựa chọn một sản phẩm ưng ý nhất</h3>
-                                    <a class="tg-btn tg-active" href="products.html">Mua ngay</a>
-                                </div>
-                            </div>
+    <%--<section class="tg-parallax tg-bgcalltoaction tg-haslayout" data-z-index="-100" data-appear-top-offset="600" data-parallax="scroll" data-image-src="images/parallax/bgparallax-06.jpg">
+        <div class="tg-sectionspace tg-haslayout">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="tg-calltoaction">
+                            <h2>Xem sản phẩm</h2>
+                            <h3>Lựa chọn một sản phẩm ưng ý nhất</h3>
+                            <a class="tg-btn tg-active" href="Products.aspx">Mua ngay</a>
                         </div>
                     </div>
                 </div>
-            </section>-->
+            </div>
+        </div>
+    </section>--%>
     <!--************************************
                     Call to Action End
             *************************************-->
