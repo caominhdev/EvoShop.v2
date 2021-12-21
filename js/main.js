@@ -1,8 +1,54 @@
 ﻿/* -------------------------------------
         CUSTOM FUNCTION WRITE HERE
 -------------------------------------- */
+
 jQuery(document).on('ready', function () {
     "use strict";
+    //
+    $(".typeahead").autocomplete({
+        source: function (req, res) {
+            $.ajax({
+                type: "POST",
+                url: "Search.asmx/GetListProduct",
+                data: "{'keyword':'" + req.term + "'}",
+                contentType: "application/json",
+                dataType: "json",
+                success: function (data) {
+                    res($.map(data.d, function (item) {
+                        return {
+                            Title: item.Title,
+                            Avatar: item.Avatar,
+                            Price: item.Price
+                        }
+                    }))
+                }
+                , error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert(textStatus);
+                }
+            });
+        },
+        focus: function (event, ui) {
+            // this is for when focus of autocomplete item 
+            $(".typeahead").val(ui.item.Title);
+            return false;
+        },
+        select: function (event, ui) {
+            // this is for when select autocomplete item
+            $(".typeahead").val(ui.item.Title);
+            return false;
+        }
+    }).data('ui-autocomplete')._renderItem = function (ul, item) {
+        return $('<li  class="header__search-history-item">')
+            .append(`
+                        <img class="header__search-history-item-img" src="${item.Avatar}" />
+                        <div class="header__search-history-item-content">
+                            <a class="header__search-history-item-title" href="#">
+                                ${item.Title}
+                            </a>
+                            <span class="header__search-history-item-price"> ${item.Price}</span>
+                        </div>`).appendTo(ul);
+    }
+
     jQuery('.tg-themetabnav > li > a').hover(function () {
         jQuery(this).tab('show');
     });

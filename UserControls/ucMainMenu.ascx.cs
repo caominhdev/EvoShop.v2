@@ -12,38 +12,57 @@ public partial class ucMainMenu : System.Web.UI.UserControl
     {
         if (!IsPostBack)
         {
-            LoadMainCategory();
+            LoadData();
             LoadCategory();
         }
     }
-    public void LoadMainCategory()
+    public void LoadData()
     {
         DBEntities db = new DBEntities();
-        var query = db.ProductMainCategories
-            .Where(x => x.Status == true)
-            .OrderBy(x => x.Position)
-            .Select(x => new
-            {
-                x.ProductMainCategoryID,
-                x.Title
-            });
-        Repeater_ProductMainCategory.DataSource = query.ToList();
-        Repeater_ProductMainCategory.DataBind();
+        var data = db.ProductMainCategories
+                     .Where(m => m.Status == true)
+                     .OrderBy(m => m.Position)
+                     .Select(m => new
+                     {
+                         m.ProductMainCategoryID,
+                         m.Title,
+                         CatList = m.ProductCategories.Where(c => c.Status == true)
+                                                      .OrderBy(c => c.Position)
+                                                      .Select(c => new
+                                                      {
+                                                          c.ProductCategoryID,
+                                                          c.Title,
+                                                          ProductList = c.Products.Where(p => p.Status == true)
+                                                                                  .OrderBy(p => p.Position)
+                                                                                  .Select(p => new
+                                                                                  {
+                                                                                      p.ProductID,
+                                                                                      p.Title,
+                                                                                  }).Take(2)
+                                                      })
+                     }).ToList();
+
+        Repeater_Tabs.DataSource = data;
+        Repeater_Contents.DataSource = data;
+
+        Repeater_Tabs.DataBind();
+        Repeater_Contents.DataBind();
     }
+
     public void LoadCategory()
     {
-        var mid = Request.QueryString["mid"].ToInt();
+
         DBEntities db = new DBEntities();
-        var query = db.ProductCategories
-            .Where(x => x.Status == true)
-            .OrderBy(x => x.Position)
-            .Select(x => new
-            {
-                x.ProductCategoryID,
-                x.Title,
-                Product = x.Products.Select(y => new { y.ProductID, y.Title }).Take(5)
-            });
-        Repeater_Sub.DataSource = query.Take(1).ToList();
-        Repeater_Sub.DataBind();
+        var data = db.ProductMainCategories
+                     .Where(m => m.Status == true)
+                     .OrderBy(m => m.Position)
+                     .Select(m => new
+                     {
+                         m.ProductMainCategoryID,
+                         m.Title,
+                     }).ToList();
+        Repeater_Category.DataSource = data;
+        Repeater_Category.DataBind();
     }
+
 }

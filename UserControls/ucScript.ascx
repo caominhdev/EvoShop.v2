@@ -1,4 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ucScript.ascx.cs" Inherits="ucScript" %>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
 <script src="/js/jquery-3.5.1.min.js"></script>
 <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 <script src="js/vendor/jquery-library.js"></script>

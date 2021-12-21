@@ -3,9 +3,10 @@
 
 <%@ Register Src="~/UserControls/ucLeftCategory.ascx" TagPrefix="uc1" TagName="ucLeftCategory" %>
 <%@ Register Src="~/UserControls/ucLeftArticle.ascx" TagPrefix="uc1" TagName="ucLeftArticle" %>
-<%@ Register Src="~/UserControls/ucPagination.ascx" TagPrefix="uc1" TagName="ucPagination" %>
 <%@ Register Src="~/UserControls/ucSearchMini.ascx" TagPrefix="uc1" TagName="ucSearchMini" %>
 <%@ Register Src="~/UserControls/ucBestSellingProducts.ascx" TagPrefix="uc1" TagName="ucBestSellingProducts" %>
+<%@ Register Src="~/UserControls/ucPagination.ascx" TagPrefix="uc1" TagName="ucPagination" %>
+
 
 
 
@@ -21,7 +22,12 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="tg-innerbannercontent">
-                        <h1 runat="server" id="h1_Title">TabLet</h1>
+                        <asp:Repeater ID="Repeater_Title" runat="server">
+                            <ItemTemplate>
+                                <h1><%# Eval("Title") %></h1>
+
+                            </ItemTemplate>
+                        </asp:Repeater>
                         <ol class="tg-breadcrumb">
                             <li><a href="Default.aspx">Trang chủ</a></li>
                             <li class="tg-active">Loại Sản Phẩm</li>
@@ -38,6 +44,7 @@
         <div class="tg-sectionspace tg-haslayout">
             <div class="container">
                 <div class="row">
+
                     <div id="tg-twocolumns" class="tg-twocolumns">
                         <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 pull-right">
                             <div id="tg-content" class="tg-content">
@@ -267,6 +274,7 @@
                     News Grid End
             *************************************-->
     </main>
+
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="footer" runat="Server">
 </asp:Content>

@@ -23,6 +23,8 @@ public class SessionUtility
         }
     }
 
+    private static Cart _Cart;
+
 
     public static Client MyClient
     {
