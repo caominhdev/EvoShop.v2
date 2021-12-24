@@ -179,10 +179,19 @@
                                                                     <%# Eval("OldPrice","{0:n0}₫") %>
                                                                 </del>
                                                             </span>
-                                                            <a class="tg-btn tg-btnstyletwo" href="javascript:void(0);">
-                                                                <i class="fa fa-shopping-basket"></i>
-                                                                <em>Thêm giỏ hàng</em>
-                                                            </a>
+                                                            <asp:UpdatePanel runat="server">
+                                                                <ContentTemplate>
+                                                                    <asp:LinkButton runat="server"
+                                                                        ID="LinkButton_Order"
+                                                                        OnClick="LinkButton_Order_Click"
+                                                                        ClientIDMode="AutoID"
+                                                                        CommandArgument='<%# Eval("ProductID") %>'
+                                                                        CommandName="1" class="tg-btn tg-btnstyletwo">
+                                                                        <i class="fa fa-shopping-basket"></i>
+                                                                        <em>Thêm giỏ hàng</em>
+                                                                    </asp:LinkButton>
+                                                                </ContentTemplate>
+                                                            </asp:UpdatePanel>
                                                         </div>
                                                     </div>
                                                 </div>

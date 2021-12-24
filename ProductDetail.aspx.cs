@@ -36,6 +36,7 @@ public partial class ProductDetail : System.Web.UI.Page
                 x.ImageList,
                 x.Content,
                 x.Description,
+                x.Specification,
                 x.CreateBy,
                 x.CreateTime
             });

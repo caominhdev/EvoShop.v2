@@ -11,9 +11,11 @@ html {
     height: 100%;
     position: relative;
 }
+
 html {
     scroll-behavior: smooth;
 }
+
 body {
     color: #666;
     background: #fff;
@@ -1963,10 +1965,10 @@ li.menu-item-has-mega-menu {
         line-height: 50px;
     }
 
-        .tg-headervtwo .tg-formsearch fieldset button:hover {
-            border: 0;
-            box-shadow: none;
-        }
+    .tg-headervtwo .tg-formsearch fieldset button:hover {
+        border: 0;
+        box-shadow: none;
+    }
 
 .tg-headervtwo .tg-navigationarea:before {
     display: none;
@@ -4816,7 +4818,7 @@ blockquote {
         }
 
         .tg-formsortshoitems fieldset .form-group:nth-child(3) .tg-select select {
-            padding: 0 18px 0 115px;
+            padding: 0 18px 0 155px;
         }
 
         .tg-formsortshoitems fieldset .form-group:nth-child(3) {
@@ -6441,8 +6443,8 @@ body.tg-comingsoonpage .tg-footerbar {
 
 /*#endregion */
 
-.main-account-login-height{
-    min-height:0;
+.main-account-login-height {
+    min-height: 0;
 }
 
 

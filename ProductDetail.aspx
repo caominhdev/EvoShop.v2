@@ -128,15 +128,7 @@
                                                             <h2>Chi tiết sản phẩm</h2>
                                                         </div>
                                                         <ul class="tg-productinfo">
-                                                            <li><span>Màn hình:</span><span>OLED, 6.7", Super Retina XDR</span></li>
-                                                            <li><span>Hệ điều hành</span><span>iOS 14</span></li>
-                                                            <li><span>Camera sau:</span><span>3 camera 12 MP</span></li>
-                                                            <li><span>Camera trước:</span><span>12 MP</span></li>
-                                                            <li><span>Chip:</span><span>Apple A14 Bionic</span></li>
-                                                            <li><span>RAM:</span><span>6 GB</span></li>
-                                                            <li><span>Bộ nhớ trong:</span><span>256 GB</span></li>
-                                                            <li><span>SIM:</span><span>1 Nano SIM & 1 eSIM, Hỗ trợ 5G</span></li>
-                                                            <li><span>Pin, Sạc:</span><span>3687 mAh, 20 W</span></li>
+                                                            <%# Eval("Specification") %>
                                                         </ul>
                                                         <div class="tg-alsoavailable">
                                                             <figure>
@@ -205,7 +197,7 @@
                                                         </div>
                                                     </div>
                                                 </div>--%>
-                                                <uc1:ucComment runat="server" id="ucComment" />
+                                                <uc1:ucComment runat="server" ID="ucComment" />
 
                                                 <uc1:ucReleatedProducts runat="server" ID="ucReleatedProducts" />
                                             </div>

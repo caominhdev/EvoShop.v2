@@ -4,6 +4,8 @@
 <%@ Register Src="~/UserControls/ucLeftCategory.ascx" TagPrefix="uc1" TagName="ucLeftCategory" %>
 <%@ Register Src="~/UserControls/ucLeftArticle.ascx" TagPrefix="uc1" TagName="ucLeftArticle" %>
 <%@ Register Src="~/UserControls/ucBestSellingProducts.ascx" TagPrefix="uc1" TagName="ucBestSellingProducts" %>
+<%@ Register Src="~/UserControls/BottomArticle.ascx" TagPrefix="uc1" TagName="BottomArticle" %>
+
 
 
 
@@ -122,55 +124,8 @@
                                             </div>
                                     </ItemTemplate>
                                 </asp:Repeater>
-                                <div class="tg-nextprevpost">
-                                    <div class="tg-prevpost tg-prevpost--bottom">
-                                        <a href="newsdetail.html">
-                                            <figure class="nextprevpost-img">
-                                                <img src="images/article/images-2.jpg" alt="image description" />
-                                            </figure>
-                                            <div class="tg-posttitle">
-                                                <h3 class="tg-prevpost-title">Chỉ có tại Evo Mobile: Mách bạn cách mua bàn phím Huawei Matepad 11 trị giá 2.48 triệu đồng với giá chỉ 10.000 đồng</h3>
-                                                <span>Đăng bởi: Thái Hảo</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="tg-prevpost tg-prevpost--bottom">
-                                        <a href="newsdetail.html">
-                                            <figure class="nextprevpost-img">
-                                                <img src="images/article/images-3.jpg" alt="image description" />
-                                            </figure>
-                                            <div class="tg-posttitle">
-                                                <h3 class="tg-prevpost-title">Smartphone giá rẻ Vivo Y32 với thỏi pin dung lượng 5.000mAh vừa được xác nhận tốc độ sạc nhanh
-                                                </h3>
-                                                <span>Đăng bởi: Thái Hảo</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="tg-prevpost">
-                                        <a href="newsdetail.html">
-                                            <figure class="nextprevpost-img">
-                                                <img src="images/article/images-4.jpg" alt="image description" />
-                                            </figure>
-                                            <div class="tg-posttitle">
-                                                <h3 class="tg-prevpost-title">Sắm điện thoại Nokia pin trâu, hỗ trợ 4G mà giá chưa đến 2 triệu đồng, nhanh tay chọn ngay 3 sản phẩm này
-                                                </h3>
-                                                <span>Đăng bởi: Thái Hảo</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="tg-prevpost">
-                                        <a href="newsdetail.html">
-                                            <figure class="nextprevpost-img">
-                                                <img src="images/article/images-5.jpg" alt="image description" />
-                                            </figure>
-                                            <div class="tg-posttitle">
-                                                <h3 class="tg-prevpost-title">Khám phá thương hiệu MacBook, nên mua MacBook Pro đời nào là chuẩn nhất? Đâu sẽ là sự lựa chọn lý tưởng nhất dành cho bạn?
-                                                </h3>
-                                                <span>Đăng bởi: <%# Eval("CreateBy") %></span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
+                                <uc1:BottomArticle runat="server" ID="BottomArticle" />
+
                                 <!--<div class="tg-commentsarea">
                                             <div class="tg-sectionhead">
                                                 <h2>03 Comments</h2>
@@ -352,7 +307,7 @@
                                             </ul>
                                         </div>
                                     </div>-->
-                            
+
                         </aside>
                     </div>
                 </div>

@@ -88,4 +88,9 @@ public partial class ProductType : System.Web.UI.Page
         Repeater_Main.DataSource = query.Pagging(page, pageSize).ToList();
         Repeater_Main.DataBind();
     }
+
+    protected void LinkButton_Order_Click(object sender, EventArgs e)
+    {
+        Common.LinkButton_Order_Click(sender, e);
+    }
 }
