@@ -95,8 +95,8 @@
                                             </div>
                                             <div class="tg-authorbox">
                                                 <%--<figure class="tg-authorimg">
-                                                <img src='<%# Eval("Avatar") %>' alt="image description">
-                                            </figure>--%>
+                                                    <img src='<%# Eval("Avatar") %>' alt="image description">
+                                                </figure>--%>
                                                 <div class="tg-authorinfo">
                                                     <div class="tg-authorhead">
                                                         <div class="tg-leftarea">

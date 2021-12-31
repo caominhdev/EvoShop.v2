@@ -13,6 +13,7 @@
 
 
 
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="Server">
@@ -149,6 +150,8 @@
                                                         </fieldset>
                                                     </div>
                                                 </div>
+
+
                                                 <%-- Product --%>
                                                 <asp:Repeater ID="Repeater_Main" runat="server">
                                                     <ItemTemplate>
@@ -156,9 +159,9 @@
                                                             <div class="tg-postbook">
                                                                 <figure class="tg-featureimg">
                                                                     <div class="tg-bookimg">
-                                                                        <div class="tg-frontcover">
+                                                                        <a class="tg-frontcover" href='<%# "/ProductDetail.aspx?id={0}&title={1}".StringFormat(Eval("ProductID"), Eval("Title").ToUrlFormat()) %>'>
                                                                             <img alt="image description" src='<%# Eval("Avatar") %>' />
-                                                                        </div>
+                                                                        </a>
                                                                     </div>
                                                                     <a class="tg-btnaddtowishlist" href="javascript:void(0);">
                                                                         <i class="icon-heart"></i>

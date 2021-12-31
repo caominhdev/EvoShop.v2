@@ -15,12 +15,12 @@
                         <article class="item tg-post">
                             <figure class="article-image-content">
                                 <a href='<%# "/NewsDetail.aspx?id={0}&title={1}".StringFormat(Eval("ArticleID"), Eval("Title").ToUrlFormat()) %>'>
-                                    <img src=' <%# Eval("Avatar") %>'/>
+                                    <img src=' <%# Eval("Avatar") %>' />
                                 </a>
                             </figure>
                             <div class="tg-postcontent">
                                 <ul class="tg-bookscategories">
-                                    <li class="article-update"><a href="javascript:void(0);"><%# Eval("CreateTime", "{0:dd/MM/yyyy}") %></a></li>
+                                    <li class="article-update"><a href="javascript:void(0);"><%# Eval("CreateTime") %></a></li>
                                 </ul>
                                 <div class="tg-themetagbox"><span class="tg-themetag">Tin hot</span></div>
                                 <div class="tg-posttitle">
@@ -30,7 +30,7 @@
                                         </a>
                                     </h3>
                                 </div>
-                                <span class="tg-bookwriter">Đăng bởi: <a href="javascript:void(0);">  <%# Eval("CreateBy") %></a></span>
+                                <span class="tg-bookwriter">Đăng bởi: <a href="javascript:void(0);"><%# Eval("CreateBy") %></a></span>
                                 <ul class="tg-postmetadata">
                                     <li><a href="javascript:void(0);"><i class="fa fa-comment-o"></i><i>415 Bình Luận</i></a></li>
                                     <li><a href="javascript:void(0);"><i class="fa fa-eye"></i><i>1565 Lượt xem</i></a></li>

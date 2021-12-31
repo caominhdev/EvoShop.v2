@@ -84,6 +84,7 @@ public partial class Article
     public Nullable<System.DateTime> CreateTime { get; set; }
     public Nullable<int> ArticleCategoryID { get; set; }
     public string CreateBy { get; set; }
+    public Nullable<int> Views { get; set; }
 
     public virtual Account Account { get; set; }
     public virtual ArticleCategory ArticleCategory { get; set; }
