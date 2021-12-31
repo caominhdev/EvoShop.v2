@@ -4,6 +4,7 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <title>Thanh Toán Hoàn Tất</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="Server">
     <main id="tg-main" class="tg-main tg-haslayout">
