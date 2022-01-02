@@ -28,7 +28,8 @@ public partial class NewsList : System.Web.UI.Page
                                    x.Content,
                                    x.Description,
                                    x.CreateTime,
-                                   x.CreateBy
+                                   x.CreateBy,
+                                   x.Views
                                });
         int pageSize = 12;
         int maxPage = 5;

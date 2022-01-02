@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="Username" />
@@ -50,6 +50,7 @@
           <Property Name="CreateTime" Type="datetime" />
           <Property Name="ArticleCategoryID" Type="int" />
           <Property Name="CreateBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="Views" Type="int" />
         </EntityType>
         <EntityType Name="ArticleCategory">
           <Key>
@@ -369,7 +370,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Order__ClientID__37A5467C">
+        <Association Name="FK__Order__ClientID__4BAC3F29">
           <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
           <End Role="Order" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
@@ -381,7 +382,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__OrderDeta__Order__38996AB5">
+        <Association Name="FK__OrderDeta__Order__4CA06362">
           <End Role="Order" Type="Self.Order" Multiplicity="1" />
           <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -489,7 +490,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ProductCo__Clien__412EB0B6">
+        <Association Name="FK__ProductCo__Clien__5535A963">
           <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
           <End Role="ProductComment" Type="Self.ProductComment" Multiplicity="*" />
           <ReferentialConstraint>
@@ -525,7 +526,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ProductVo__Clien__440B1D61">
+        <Association Name="FK__ProductVo__Clien__5812160E">
           <End Role="Client" Type="Self.Client" Multiplicity="1" />
           <End Role="ProductVote" Type="Self.ProductVote" Multiplicity="*" />
           <ReferentialConstraint>
@@ -603,11 +604,11 @@
             <End Role="Account" EntitySet="Account" />
             <End Role="ContactCategory" EntitySet="ContactCategory" />
           </AssociationSet>
-          <AssociationSet Name="FK__Order__ClientID__37A5467C" Association="Self.FK__Order__ClientID__37A5467C">
+          <AssociationSet Name="FK__Order__ClientID__4BAC3F29" Association="Self.FK__Order__ClientID__4BAC3F29">
             <End Role="Client" EntitySet="Client" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
-          <AssociationSet Name="FK__OrderDeta__Order__38996AB5" Association="Self.FK__OrderDeta__Order__38996AB5">
+          <AssociationSet Name="FK__OrderDeta__Order__4CA06362" Association="Self.FK__OrderDeta__Order__4CA06362">
             <End Role="Order" EntitySet="Order" />
             <End Role="OrderDetail" EntitySet="OrderDetail" />
           </AssociationSet>
@@ -643,7 +644,7 @@
             <End Role="ProductMainCategory" EntitySet="ProductMainCategory" />
             <End Role="ProductCategory" EntitySet="ProductCategory" />
           </AssociationSet>
-          <AssociationSet Name="FK__ProductCo__Clien__412EB0B6" Association="Self.FK__ProductCo__Clien__412EB0B6">
+          <AssociationSet Name="FK__ProductCo__Clien__5535A963" Association="Self.FK__ProductCo__Clien__5535A963">
             <End Role="Client" EntitySet="Client" />
             <End Role="ProductComment" EntitySet="ProductComment" />
           </AssociationSet>
@@ -655,7 +656,7 @@
             <End Role="Account" EntitySet="Account" />
             <End Role="ProductMainCategory" EntitySet="ProductMainCategory" />
           </AssociationSet>
-          <AssociationSet Name="FK__ProductVo__Clien__440B1D61" Association="Self.FK__ProductVo__Clien__440B1D61">
+          <AssociationSet Name="FK__ProductVo__Clien__5812160E" Association="Self.FK__ProductVo__Clien__5812160E">
             <End Role="Client" EntitySet="Client" />
             <End Role="ProductVote" EntitySet="ProductVote" />
           </AssociationSet>
@@ -664,16 +665,130 @@
             <End Role="ProductVote" EntitySet="ProductVote" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accounts" EntityType="DBModel.Account" />
+          <EntitySet Name="AccountCategories" EntityType="DBModel.AccountCategory" />
+          <EntitySet Name="Articles" EntityType="DBModel.Article" />
+          <EntitySet Name="ArticleCategories" EntityType="DBModel.ArticleCategory" />
+          <EntitySet Name="Clients" EntityType="DBModel.Client" />
+          <EntitySet Name="ClientCategories" EntityType="DBModel.ClientCategory" />
+          <EntitySet Name="Contacts" EntityType="DBModel.Contact" />
+          <EntitySet Name="ContactCategories" EntityType="DBModel.ContactCategory" />
+          <EntitySet Name="Orders" EntityType="DBModel.Order" />
+          <EntitySet Name="OrderDetails" EntityType="DBModel.OrderDetail" />
+          <EntitySet Name="Pictures" EntityType="DBModel.Picture" />
+          <EntitySet Name="PictureCategories" EntityType="DBModel.PictureCategory" />
+          <EntitySet Name="Products" EntityType="DBModel.Product" />
+          <EntitySet Name="ProductCategories" EntityType="DBModel.ProductCategory" />
+          <EntitySet Name="ProductComments" EntityType="DBModel.ProductComment" />
+          <EntitySet Name="ProductMainCategories" EntityType="DBModel.ProductMainCategory" />
+          <EntitySet Name="ProductVotes" EntityType="DBModel.ProductVote" />
+          <AssociationSet Name="FK__Account__Account__1273C1CD" Association="DBModel.FK__Account__Account__1273C1CD">
+            <End Role="AccountCategory" EntitySet="AccountCategories" />
+            <End Role="Account" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Article__CreateB__239E4DCF" Association="DBModel.FK__Article__CreateB__239E4DCF">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="Article" EntitySet="Articles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ArticleCa__Creat__1FCDBCEB" Association="DBModel.FK__ArticleCa__Creat__1FCDBCEB">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="ArticleCategory" EntitySet="ArticleCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ClientCat__Creat__2D27B809" Association="DBModel.FK__ClientCat__Creat__2D27B809">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="ClientCategory" EntitySet="ClientCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Contact__Approve__44FF419A" Association="DBModel.FK__Contact__Approve__44FF419A">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="Contact" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ContactCa__Creat__412EB0B6" Association="DBModel.FK__ContactCa__Creat__412EB0B6">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="ContactCategory" EntitySet="ContactCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Picture__CreateB__2A4B4B5E" Association="DBModel.FK__Picture__CreateB__2A4B4B5E">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="Picture" EntitySet="Pictures" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PictureCa__Creat__267ABA7A" Association="DBModel.FK__PictureCa__Creat__267ABA7A">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="PictureCategory" EntitySet="PictureCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__CreateB__1CF15040" Association="DBModel.FK__Product__CreateB__1CF15040">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductCa__Creat__1920BF5C" Association="DBModel.FK__ProductCa__Creat__1920BF5C">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="ProductCategory" EntitySet="ProductCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductMa__Creat__15502E78" Association="DBModel.FK__ProductMa__Creat__15502E78">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="ProductMainCategory" EntitySet="ProductMainCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Article__Article__300424B4" Association="DBModel.FK__Article__Article__300424B4">
+            <End Role="ArticleCategory" EntitySet="ArticleCategories" />
+            <End Role="Article" EntitySet="Articles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Client__ClientCa__32E0915F" Association="DBModel.FK__Client__ClientCa__32E0915F">
+            <End Role="ClientCategory" EntitySet="ClientCategories" />
+            <End Role="Client" EntitySet="Clients" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Order__ClientID__4BAC3F29" Association="DBModel.FK__Order__ClientID__4BAC3F29">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductCo__Clien__5535A963" Association="DBModel.FK__ProductCo__Clien__5535A963">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="ProductComment" EntitySet="ProductComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductVo__Clien__5812160E" Association="DBModel.FK__ProductVo__Clien__5812160E">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="ProductVote" EntitySet="ProductVotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Contact__Contact__35BCFE0A" Association="DBModel.FK__Contact__Contact__35BCFE0A">
+            <End Role="ContactCategory" EntitySet="ContactCategories" />
+            <End Role="Contact" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderDeta__Order__4CA06362" Association="DBModel.FK__OrderDeta__Order__4CA06362">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="OrderDetail" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderDeta__Produ__398D8EEE" Association="DBModel.FK__OrderDeta__Produ__398D8EEE">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="OrderDetail" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Picture__Picture__3B75D760" Association="DBModel.FK__Picture__Picture__3B75D760">
+            <End Role="PictureCategory" EntitySet="PictureCategories" />
+            <End Role="Picture" EntitySet="Pictures" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__Product__3E52440B" Association="DBModel.FK__Product__Product__3E52440B">
+            <End Role="ProductCategory" EntitySet="ProductCategories" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductCo__Produ__4222D4EF" Association="DBModel.FK__ProductCo__Produ__4222D4EF">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="ProductComment" EntitySet="ProductComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductVo__Produ__44FF419A" Association="DBModel.FK__ProductVo__Produ__44FF419A">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="ProductVote" EntitySet="ProductVotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductCa__Produ__403A8C7D" Association="DBModel.FK__ProductCa__Produ__403A8C7D">
+            <End Role="ProductMainCategory" EntitySet="ProductMainCategories" />
+            <End Role="ProductCategory" EntitySet="ProductCategories" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="Username" />
           </Key>
-          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Avatar" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Thumb" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
@@ -684,23 +799,23 @@
           <Property Name="Status" Type="Boolean" />
           <Property Name="CreateTime" Type="DateTime" Precision="3" />
           <Property Name="AccountCategoryID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AccountCategory" Relationship="Self.FK__Account__Account__1273C1CD" FromRole="Account" ToRole="AccountCategory" />
-          <NavigationProperty Name="Articles" Relationship="Self.FK__Article__CreateB__239E4DCF" FromRole="Account" ToRole="Article" />
-          <NavigationProperty Name="ArticleCategories" Relationship="Self.FK__ArticleCa__Creat__1FCDBCEB" FromRole="Account" ToRole="ArticleCategory" />
-          <NavigationProperty Name="ClientCategories" Relationship="Self.FK__ClientCat__Creat__2D27B809" FromRole="Account" ToRole="ClientCategory" />
-          <NavigationProperty Name="Contacts" Relationship="Self.FK__Contact__Approve__44FF419A" FromRole="Account" ToRole="Contact" />
-          <NavigationProperty Name="ContactCategories" Relationship="Self.FK__ContactCa__Creat__412EB0B6" FromRole="Account" ToRole="ContactCategory" />
-          <NavigationProperty Name="Pictures" Relationship="Self.FK__Picture__CreateB__2A4B4B5E" FromRole="Account" ToRole="Picture" />
-          <NavigationProperty Name="PictureCategories" Relationship="Self.FK__PictureCa__Creat__267ABA7A" FromRole="Account" ToRole="PictureCategory" />
-          <NavigationProperty Name="Products" Relationship="Self.FK__Product__CreateB__1CF15040" FromRole="Account" ToRole="Product" />
-          <NavigationProperty Name="ProductCategories" Relationship="Self.FK__ProductCa__Creat__1920BF5C" FromRole="Account" ToRole="ProductCategory" />
-          <NavigationProperty Name="ProductMainCategories" Relationship="Self.FK__ProductMa__Creat__15502E78" FromRole="Account" ToRole="ProductMainCategory" />
+          <NavigationProperty Name="AccountCategory" Relationship="DBModel.FK__Account__Account__1273C1CD" FromRole="Account" ToRole="AccountCategory" />
+          <NavigationProperty Name="Articles" Relationship="DBModel.FK__Article__CreateB__239E4DCF" FromRole="Account" ToRole="Article" />
+          <NavigationProperty Name="ArticleCategories" Relationship="DBModel.FK__ArticleCa__Creat__1FCDBCEB" FromRole="Account" ToRole="ArticleCategory" />
+          <NavigationProperty Name="ClientCategories" Relationship="DBModel.FK__ClientCat__Creat__2D27B809" FromRole="Account" ToRole="ClientCategory" />
+          <NavigationProperty Name="Contacts" Relationship="DBModel.FK__Contact__Approve__44FF419A" FromRole="Account" ToRole="Contact" />
+          <NavigationProperty Name="ContactCategories" Relationship="DBModel.FK__ContactCa__Creat__412EB0B6" FromRole="Account" ToRole="ContactCategory" />
+          <NavigationProperty Name="Pictures" Relationship="DBModel.FK__Picture__CreateB__2A4B4B5E" FromRole="Account" ToRole="Picture" />
+          <NavigationProperty Name="PictureCategories" Relationship="DBModel.FK__PictureCa__Creat__267ABA7A" FromRole="Account" ToRole="PictureCategory" />
+          <NavigationProperty Name="Products" Relationship="DBModel.FK__Product__CreateB__1CF15040" FromRole="Account" ToRole="Product" />
+          <NavigationProperty Name="ProductCategories" Relationship="DBModel.FK__ProductCa__Creat__1920BF5C" FromRole="Account" ToRole="ProductCategory" />
+          <NavigationProperty Name="ProductMainCategories" Relationship="DBModel.FK__ProductMa__Creat__15502E78" FromRole="Account" ToRole="ProductMainCategory" />
         </EntityType>
         <EntityType Name="AccountCategory">
           <Key>
             <PropertyRef Name="AccountCategoryID" />
           </Key>
-          <Property Name="AccountCategoryID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AccountCategoryID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Avatar" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Thumb" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -709,7 +824,7 @@
           <Property Name="Position" Type="Int32" />
           <Property Name="Status" Type="Boolean" />
           <Property Name="CreateTime" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Accounts" Relationship="Self.FK__Account__Account__1273C1CD" FromRole="AccountCategory" ToRole="Account" />
+          <NavigationProperty Name="Accounts" Relationship="DBModel.FK__Account__Account__1273C1CD" FromRole="AccountCategory" ToRole="Account" />
         </EntityType>
         <EntityType Name="Article">
           <Key>
@@ -726,8 +841,9 @@
           <Property Name="CreateTime" Type="DateTime" Precision="3" />
           <Property Name="ArticleCategoryID" Type="Int32" />
           <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Account" Relationship="Self.FK__Article__CreateB__239E4DCF" FromRole="Article" ToRole="Account" />
-          <NavigationProperty Name="ArticleCategory" Relationship="Self.FK__Article__Article__300424B4" FromRole="Article" ToRole="ArticleCategory" />
+          <Property Name="Views" Type="Int32" />
+          <NavigationProperty Name="Account" Relationship="DBModel.FK__Article__CreateB__239E4DCF" FromRole="Article" ToRole="Account" />
+          <NavigationProperty Name="ArticleCategory" Relationship="DBModel.FK__Article__Article__300424B4" FromRole="Article" ToRole="ArticleCategory" />
         </EntityType>
         <EntityType Name="ArticleCategory">
           <Key>
@@ -743,8 +859,8 @@
           <Property Name="Status" Type="Boolean" />
           <Property Name="CreateTime" Type="DateTime" Precision="3" />
           <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Account" Relationship="Self.FK__ArticleCa__Creat__1FCDBCEB" FromRole="ArticleCategory" ToRole="Account" />
-          <NavigationProperty Name="Articles" Relationship="Self.FK__Article__Article__300424B4" FromRole="ArticleCategory" ToRole="Article" />
+          <NavigationProperty Name="Account" Relationship="DBModel.FK__ArticleCa__Creat__1FCDBCEB" FromRole="ArticleCategory" ToRole="Account" />
+          <NavigationProperty Name="Articles" Relationship="DBModel.FK__Article__Article__300424B4" FromRole="ArticleCategory" ToRole="Article" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
@@ -759,10 +875,10 @@
           <Property Name="Status" Type="Boolean" />
           <Property Name="CreateTime" Type="DateTime" Precision="3" />
           <Property Name="ClientCategoryID" Type="Int32" />
-          <NavigationProperty Name="ClientCategory" Relationship="Self.FK__Client__ClientCa__32E0915F" FromRole="Client" ToRole="ClientCategory" />
-          <NavigationProperty Name="Orders" Relationship="Self.FK__Order__ClientID__37A5467C" FromRole="Client" ToRole="Order" />
-          <NavigationProperty Name="ProductComments" Relationship="Self.FK__ProductCo__Clien__412EB0B6" FromRole="Client" ToRole="ProductComment" />
-          <NavigationProperty Name="ProductVotes" Relationship="Self.FK__ProductVo__Clien__440B1D61" FromRole="Client" ToRole="ProductVote" />
+          <NavigationProperty Name="ClientCategory" Relationship="DBModel.FK__Client__ClientCa__32E0915F" FromRole="Client" ToRole="ClientCategory" />
+          <NavigationProperty Name="Orders" Relationship="DBModel.FK__Order__ClientID__4BAC3F29" FromRole="Client" ToRole="Order" />
+          <NavigationProperty Name="ProductComments" Relationship="DBModel.FK__ProductCo__Clien__5535A963" FromRole="Client" ToRole="ProductComment" />
+          <NavigationProperty Name="ProductVotes" Relationship="DBModel.FK__ProductVo__Clien__5812160E" FromRole="Client" ToRole="ProductVote" />
         </EntityType>
         <EntityType Name="ClientCategory">
           <Key>
@@ -778,8 +894,8 @@
           <Property Name="Status" Type="Boolean" />
           <Property Name="CreateTime" Type="DateTime" Precision="3" />
           <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Account" Relationship="Self.FK__ClientCat__Creat__2D27B809" FromRole="ClientCategory" ToRole="Account" />
-          <NavigationProperty Name="Clients" Relationship="Self.FK__Client__ClientCa__32E0915F" FromRole="ClientCategory" ToRole="Client" />
+          <NavigationProperty Name="Account" Relationship="DBModel.FK__ClientCat__Creat__2D27B809" FromRole="ClientCategory" ToRole="Account" />
+          <NavigationProperty Name="Clients" Relationship="DBModel.FK__Client__ClientCa__32E0915F" FromRole="ClientCategory" ToRole="Client" />
         </EntityType>
         <EntityType Name="Contact">
           <Key>
@@ -795,8 +911,8 @@
           <Property Name="CreateTime" Type="DateTime" Precision="3" />
           <Property Name="ContactCategoryID" Type="Int32" />
           <Property Name="ApproveBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Account" Relationship="Self.FK__Contact__Approve__44FF419A" FromRole="Contact" ToRole="Account" />
-          <NavigationProperty Name="ContactCategory" Relationship="Self.FK__Contact__Contact__35BCFE0A" FromRole="Contact" ToRole="ContactCategory" />
+          <NavigationProperty Name="Account" Relationship="DBModel.FK__Contact__Approve__44FF419A" FromRole="Contact" ToRole="Account" />
+          <NavigationProperty Name="ContactCategory" Relationship="DBModel.FK__Contact__Contact__35BCFE0A" FromRole="Contact" ToRole="ContactCategory" />
         </EntityType>
         <EntityType Name="ContactCategory">
           <Key>
@@ -812,8 +928,8 @@
           <Property Name="Status" Type="Boolean" />
           <Property Name="CreateTime" Type="DateTime" Precision="3" />
           <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Account" Relationship="Self.FK__ContactCa__Creat__412EB0B6" FromRole="ContactCategory" ToRole="Account" />
-          <NavigationProperty Name="Contacts" Relationship="Self.FK__Contact__Contact__35BCFE0A" FromRole="ContactCategory" ToRole="Contact" />
+          <NavigationProperty Name="Account" Relationship="DBModel.FK__ContactCa__Creat__412EB0B6" FromRole="ContactCategory" ToRole="Account" />
+          <NavigationProperty Name="Contacts" Relationship="DBModel.FK__Contact__Contact__35BCFE0A" FromRole="ContactCategory" ToRole="Contact" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -832,8 +948,8 @@
           <Property Name="ChargeStatus" Type="Boolean" />
           <Property Name="DeliveStatus" Type="Boolean" />
           <Property Name="ClientID" Type="Int32" />
-          <NavigationProperty Name="Client" Relationship="Self.FK__Order__ClientID__37A5467C" FromRole="Order" ToRole="Client" />
-          <NavigationProperty Name="OrderDetails" Relationship="Self.FK__OrderDeta__Order__38996AB5" FromRole="Order" ToRole="OrderDetail" />
+          <NavigationProperty Name="Client" Relationship="DBModel.FK__Order__ClientID__4BAC3F29" FromRole="Order" ToRole="Client" />
+          <NavigationProperty Name="OrderDetails" Relationship="DBModel.FK__OrderDeta__Order__4CA06362" FromRole="Order" ToRole="OrderDetail" />
         </EntityType>
         <EntityType Name="OrderDetail">
           <Key>
@@ -844,8 +960,8 @@
           <Property Name="ProductID" Type="Int32" Nullable="false" />
           <Property Name="Quantity" Type="Int32" />
           <Property Name="Price" Type="Double" />
-          <NavigationProperty Name="Order" Relationship="Self.FK__OrderDeta__Order__38996AB5" FromRole="OrderDetail" ToRole="Order" />
-          <NavigationProperty Name="Product" Relationship="Self.FK__OrderDeta__Produ__398D8EEE" FromRole="OrderDetail" ToRole="Product" />
+          <NavigationProperty Name="Order" Relationship="DBModel.FK__OrderDeta__Order__4CA06362" FromRole="OrderDetail" ToRole="Order" />
+          <NavigationProperty Name="Product" Relationship="DBModel.FK__OrderDeta__Produ__398D8EEE" FromRole="OrderDetail" ToRole="Product" />
         </EntityType>
         <EntityType Name="Picture">
           <Key>
@@ -863,8 +979,8 @@
           <Property Name="CreateTime" Type="DateTime" Precision="3" />
           <Property Name="PictureCategoryID" Type="Int32" />
           <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Account" Relationship="Self.FK__Picture__CreateB__2A4B4B5E" FromRole="Picture" ToRole="Account" />
-          <NavigationProperty Name="PictureCategory" Relationship="Self.FK__Picture__Picture__3B75D760" FromRole="Picture" ToRole="PictureCategory" />
+          <NavigationProperty Name="Account" Relationship="DBModel.FK__Picture__CreateB__2A4B4B5E" FromRole="Picture" ToRole="Account" />
+          <NavigationProperty Name="PictureCategory" Relationship="DBModel.FK__Picture__Picture__3B75D760" FromRole="Picture" ToRole="PictureCategory" />
         </EntityType>
         <EntityType Name="PictureCategory">
           <Key>
@@ -880,8 +996,8 @@
           <Property Name="Status" Type="Boolean" />
           <Property Name="CreateTime" Type="DateTime" Precision="3" />
           <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Account" Relationship="Self.FK__PictureCa__Creat__267ABA7A" FromRole="PictureCategory" ToRole="Account" />
-          <NavigationProperty Name="Pictures" Relationship="Self.FK__Picture__Picture__3B75D760" FromRole="PictureCategory" ToRole="Picture" />
+          <NavigationProperty Name="Account" Relationship="DBModel.FK__PictureCa__Creat__267ABA7A" FromRole="PictureCategory" ToRole="Account" />
+          <NavigationProperty Name="Pictures" Relationship="DBModel.FK__Picture__Picture__3B75D760" FromRole="PictureCategory" ToRole="Picture" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -906,11 +1022,11 @@
           <Property Name="CreateTime" Type="DateTime" Precision="3" />
           <Property Name="ProductCategoryID" Type="Int32" />
           <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Account" Relationship="Self.FK__Product__CreateB__1CF15040" FromRole="Product" ToRole="Account" />
-          <NavigationProperty Name="OrderDetails" Relationship="Self.FK__OrderDeta__Produ__398D8EEE" FromRole="Product" ToRole="OrderDetail" />
-          <NavigationProperty Name="ProductCategory" Relationship="Self.FK__Product__Product__3E52440B" FromRole="Product" ToRole="ProductCategory" />
-          <NavigationProperty Name="ProductComments" Relationship="Self.FK__ProductCo__Produ__4222D4EF" FromRole="Product" ToRole="ProductComment" />
-          <NavigationProperty Name="ProductVotes" Relationship="Self.FK__ProductVo__Produ__44FF419A" FromRole="Product" ToRole="ProductVote" />
+          <NavigationProperty Name="Account" Relationship="DBModel.FK__Product__CreateB__1CF15040" FromRole="Product" ToRole="Account" />
+          <NavigationProperty Name="OrderDetails" Relationship="DBModel.FK__OrderDeta__Produ__398D8EEE" FromRole="Product" ToRole="OrderDetail" />
+          <NavigationProperty Name="ProductCategory" Relationship="DBModel.FK__Product__Product__3E52440B" FromRole="Product" ToRole="ProductCategory" />
+          <NavigationProperty Name="ProductComments" Relationship="DBModel.FK__ProductCo__Produ__4222D4EF" FromRole="Product" ToRole="ProductComment" />
+          <NavigationProperty Name="ProductVotes" Relationship="DBModel.FK__ProductVo__Produ__44FF419A" FromRole="Product" ToRole="ProductVote" />
         </EntityType>
         <EntityType Name="ProductCategory">
           <Key>
@@ -927,9 +1043,9 @@
           <Property Name="CreateTime" Type="DateTime" Precision="3" />
           <Property Name="ProductMainCategoryID" Type="Int32" />
           <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Account" Relationship="Self.FK__ProductCa__Creat__1920BF5C" FromRole="ProductCategory" ToRole="Account" />
-          <NavigationProperty Name="Products" Relationship="Self.FK__Product__Product__3E52440B" FromRole="ProductCategory" ToRole="Product" />
-          <NavigationProperty Name="ProductMainCategory" Relationship="Self.FK__ProductCa__Produ__403A8C7D" FromRole="ProductCategory" ToRole="ProductMainCategory" />
+          <NavigationProperty Name="Account" Relationship="DBModel.FK__ProductCa__Creat__1920BF5C" FromRole="ProductCategory" ToRole="Account" />
+          <NavigationProperty Name="Products" Relationship="DBModel.FK__Product__Product__3E52440B" FromRole="ProductCategory" ToRole="Product" />
+          <NavigationProperty Name="ProductMainCategory" Relationship="DBModel.FK__ProductCa__Produ__403A8C7D" FromRole="ProductCategory" ToRole="ProductMainCategory" />
         </EntityType>
         <EntityType Name="ProductComment">
           <Key>
@@ -941,8 +1057,8 @@
           <Property Name="CreateTime" Type="DateTime" Precision="3" />
           <Property Name="ClientID" Type="Int32" />
           <Property Name="ProductID" Type="Int32" />
-          <NavigationProperty Name="Client" Relationship="Self.FK__ProductCo__Clien__412EB0B6" FromRole="ProductComment" ToRole="Client" />
-          <NavigationProperty Name="Product" Relationship="Self.FK__ProductCo__Produ__4222D4EF" FromRole="ProductComment" ToRole="Product" />
+          <NavigationProperty Name="Client" Relationship="DBModel.FK__ProductCo__Clien__5535A963" FromRole="ProductComment" ToRole="Client" />
+          <NavigationProperty Name="Product" Relationship="DBModel.FK__ProductCo__Produ__4222D4EF" FromRole="ProductComment" ToRole="Product" />
         </EntityType>
         <EntityType Name="ProductMainCategory">
           <Key>
@@ -958,8 +1074,8 @@
           <Property Name="Status" Type="Boolean" />
           <Property Name="CreateTime" Type="DateTime" Precision="3" />
           <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Account" Relationship="Self.FK__ProductMa__Creat__15502E78" FromRole="ProductMainCategory" ToRole="Account" />
-          <NavigationProperty Name="ProductCategories" Relationship="Self.FK__ProductCa__Produ__403A8C7D" FromRole="ProductMainCategory" ToRole="ProductCategory" />
+          <NavigationProperty Name="Account" Relationship="DBModel.FK__ProductMa__Creat__15502E78" FromRole="ProductMainCategory" ToRole="Account" />
+          <NavigationProperty Name="ProductCategories" Relationship="DBModel.FK__ProductCa__Produ__403A8C7D" FromRole="ProductMainCategory" ToRole="ProductCategory" />
         </EntityType>
         <EntityType Name="ProductVote">
           <Key>
@@ -970,12 +1086,12 @@
           <Property Name="ProductID" Type="Int32" Nullable="false" />
           <Property Name="CreateTime" Type="DateTime" Precision="3" />
           <Property Name="Value" Type="Int32" />
-          <NavigationProperty Name="Client" Relationship="Self.FK__ProductVo__Clien__440B1D61" FromRole="ProductVote" ToRole="Client" />
-          <NavigationProperty Name="Product" Relationship="Self.FK__ProductVo__Produ__44FF419A" FromRole="ProductVote" ToRole="Product" />
+          <NavigationProperty Name="Client" Relationship="DBModel.FK__ProductVo__Clien__5812160E" FromRole="ProductVote" ToRole="Client" />
+          <NavigationProperty Name="Product" Relationship="DBModel.FK__ProductVo__Produ__44FF419A" FromRole="ProductVote" ToRole="Product" />
         </EntityType>
         <Association Name="FK__Account__Account__1273C1CD">
-          <End Role="AccountCategory" Type="Self.AccountCategory" Multiplicity="0..1" />
-          <End Role="Account" Type="Self.Account" Multiplicity="*" />
+          <End Type="DBModel.AccountCategory" Role="AccountCategory" Multiplicity="0..1" />
+          <End Type="DBModel.Account" Role="Account" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AccountCategory">
               <PropertyRef Name="AccountCategoryID" />
@@ -986,8 +1102,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Article__CreateB__239E4DCF">
-          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
-          <End Role="Article" Type="Self.Article" Multiplicity="*" />
+          <End Type="DBModel.Account" Role="Account" Multiplicity="0..1" />
+          <End Type="DBModel.Article" Role="Article" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Account">
               <PropertyRef Name="Username" />
@@ -998,8 +1114,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__ArticleCa__Creat__1FCDBCEB">
-          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
-          <End Role="ArticleCategory" Type="Self.ArticleCategory" Multiplicity="*" />
+          <End Type="DBModel.Account" Role="Account" Multiplicity="0..1" />
+          <End Type="DBModel.ArticleCategory" Role="ArticleCategory" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Account">
               <PropertyRef Name="Username" />
@@ -1010,8 +1126,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__ClientCat__Creat__2D27B809">
-          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
-          <End Role="ClientCategory" Type="Self.ClientCategory" Multiplicity="*" />
+          <End Type="DBModel.Account" Role="Account" Multiplicity="0..1" />
+          <End Type="DBModel.ClientCategory" Role="ClientCategory" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Account">
               <PropertyRef Name="Username" />
@@ -1022,8 +1138,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Contact__Approve__44FF419A">
-          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
-          <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
+          <End Type="DBModel.Account" Role="Account" Multiplicity="0..1" />
+          <End Type="DBModel.Contact" Role="Contact" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Account">
               <PropertyRef Name="Username" />
@@ -1034,8 +1150,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__ContactCa__Creat__412EB0B6">
-          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
-          <End Role="ContactCategory" Type="Self.ContactCategory" Multiplicity="*" />
+          <End Type="DBModel.Account" Role="Account" Multiplicity="0..1" />
+          <End Type="DBModel.ContactCategory" Role="ContactCategory" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Account">
               <PropertyRef Name="Username" />
@@ -1046,8 +1162,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Picture__CreateB__2A4B4B5E">
-          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
-          <End Role="Picture" Type="Self.Picture" Multiplicity="*" />
+          <End Type="DBModel.Account" Role="Account" Multiplicity="0..1" />
+          <End Type="DBModel.Picture" Role="Picture" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Account">
               <PropertyRef Name="Username" />
@@ -1058,8 +1174,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__PictureCa__Creat__267ABA7A">
-          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
-          <End Role="PictureCategory" Type="Self.PictureCategory" Multiplicity="*" />
+          <End Type="DBModel.Account" Role="Account" Multiplicity="0..1" />
+          <End Type="DBModel.PictureCategory" Role="PictureCategory" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Account">
               <PropertyRef Name="Username" />
@@ -1070,8 +1186,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Product__CreateB__1CF15040">
-          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
-          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <End Type="DBModel.Account" Role="Account" Multiplicity="0..1" />
+          <End Type="DBModel.Product" Role="Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Account">
               <PropertyRef Name="Username" />
@@ -1082,8 +1198,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__ProductCa__Creat__1920BF5C">
-          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
-          <End Role="ProductCategory" Type="Self.ProductCategory" Multiplicity="*" />
+          <End Type="DBModel.Account" Role="Account" Multiplicity="0..1" />
+          <End Type="DBModel.ProductCategory" Role="ProductCategory" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Account">
               <PropertyRef Name="Username" />
@@ -1094,8 +1210,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__ProductMa__Creat__15502E78">
-          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
-          <End Role="ProductMainCategory" Type="Self.ProductMainCategory" Multiplicity="*" />
+          <End Type="DBModel.Account" Role="Account" Multiplicity="0..1" />
+          <End Type="DBModel.ProductMainCategory" Role="ProductMainCategory" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Account">
               <PropertyRef Name="Username" />
@@ -1106,8 +1222,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Article__Article__300424B4">
-          <End Role="ArticleCategory" Type="Self.ArticleCategory" Multiplicity="0..1" />
-          <End Role="Article" Type="Self.Article" Multiplicity="*" />
+          <End Type="DBModel.ArticleCategory" Role="ArticleCategory" Multiplicity="0..1" />
+          <End Type="DBModel.Article" Role="Article" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ArticleCategory">
               <PropertyRef Name="ArticleCategoryID" />
@@ -1118,8 +1234,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Client__ClientCa__32E0915F">
-          <End Role="ClientCategory" Type="Self.ClientCategory" Multiplicity="0..1" />
-          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <End Type="DBModel.ClientCategory" Role="ClientCategory" Multiplicity="0..1" />
+          <End Type="DBModel.Client" Role="Client" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ClientCategory">
               <PropertyRef Name="ClientCategoryID" />
@@ -1129,9 +1245,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Order__ClientID__37A5467C">
-          <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
-          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+        <Association Name="FK__Order__ClientID__4BAC3F29">
+          <End Type="DBModel.Client" Role="Client" Multiplicity="0..1" />
+          <End Type="DBModel.Order" Role="Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Client">
               <PropertyRef Name="ClientID" />
@@ -1141,9 +1257,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ProductCo__Clien__412EB0B6">
-          <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
-          <End Role="ProductComment" Type="Self.ProductComment" Multiplicity="*" />
+        <Association Name="FK__ProductCo__Clien__5535A963">
+          <End Type="DBModel.Client" Role="Client" Multiplicity="0..1" />
+          <End Type="DBModel.ProductComment" Role="ProductComment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Client">
               <PropertyRef Name="ClientID" />
@@ -1153,9 +1269,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ProductVo__Clien__440B1D61">
-          <End Role="Client" Type="Self.Client" Multiplicity="1" />
-          <End Role="ProductVote" Type="Self.ProductVote" Multiplicity="*" />
+        <Association Name="FK__ProductVo__Clien__5812160E">
+          <End Type="DBModel.Client" Role="Client" Multiplicity="1" />
+          <End Type="DBModel.ProductVote" Role="ProductVote" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Client">
               <PropertyRef Name="ClientID" />
@@ -1166,8 +1282,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Contact__Contact__35BCFE0A">
-          <End Role="ContactCategory" Type="Self.ContactCategory" Multiplicity="0..1" />
-          <End Role="Contact" Type="Self.Contact" Multiplicity="*" />
+          <End Type="DBModel.ContactCategory" Role="ContactCategory" Multiplicity="0..1" />
+          <End Type="DBModel.Contact" Role="Contact" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ContactCategory">
               <PropertyRef Name="ContactCategoryID" />
@@ -1177,9 +1293,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__OrderDeta__Order__38996AB5">
-          <End Role="Order" Type="Self.Order" Multiplicity="1" />
-          <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+        <Association Name="FK__OrderDeta__Order__4CA06362">
+          <End Type="DBModel.Order" Role="Order" Multiplicity="1" />
+          <End Type="DBModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Order">
               <PropertyRef Name="OrderID" />
@@ -1190,8 +1306,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__OrderDeta__Produ__398D8EEE">
-          <End Role="Product" Type="Self.Product" Multiplicity="1" />
-          <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+          <End Type="DBModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="DBModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Product">
               <PropertyRef Name="ProductID" />
@@ -1202,8 +1318,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Picture__Picture__3B75D760">
-          <End Role="PictureCategory" Type="Self.PictureCategory" Multiplicity="0..1" />
-          <End Role="Picture" Type="Self.Picture" Multiplicity="*" />
+          <End Type="DBModel.PictureCategory" Role="PictureCategory" Multiplicity="0..1" />
+          <End Type="DBModel.Picture" Role="Picture" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PictureCategory">
               <PropertyRef Name="PictureCategoryID" />
@@ -1214,8 +1330,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Product__Product__3E52440B">
-          <End Role="ProductCategory" Type="Self.ProductCategory" Multiplicity="0..1" />
-          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <End Type="DBModel.ProductCategory" Role="ProductCategory" Multiplicity="0..1" />
+          <End Type="DBModel.Product" Role="Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ProductCategory">
               <PropertyRef Name="ProductCategoryID" />
@@ -1226,8 +1342,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__ProductCo__Produ__4222D4EF">
-          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
-          <End Role="ProductComment" Type="Self.ProductComment" Multiplicity="*" />
+          <End Type="DBModel.Product" Role="Product" Multiplicity="0..1" />
+          <End Type="DBModel.ProductComment" Role="ProductComment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Product">
               <PropertyRef Name="ProductID" />
@@ -1238,8 +1354,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__ProductVo__Produ__44FF419A">
-          <End Role="Product" Type="Self.Product" Multiplicity="1" />
-          <End Role="ProductVote" Type="Self.ProductVote" Multiplicity="*" />
+          <End Type="DBModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="DBModel.ProductVote" Role="ProductVote" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Product">
               <PropertyRef Name="ProductID" />
@@ -1250,8 +1366,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__ProductCa__Produ__403A8C7D">
-          <End Role="ProductMainCategory" Type="Self.ProductMainCategory" Multiplicity="0..1" />
-          <End Role="ProductCategory" Type="Self.ProductCategory" Multiplicity="*" />
+          <End Type="DBModel.ProductMainCategory" Role="ProductMainCategory" Multiplicity="0..1" />
+          <End Type="DBModel.ProductCategory" Role="ProductCategory" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ProductMainCategory">
               <PropertyRef Name="ProductMainCategoryID" />
@@ -1261,121 +1377,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Accounts" EntityType="Self.Account" />
-          <EntitySet Name="AccountCategories" EntityType="Self.AccountCategory" />
-          <EntitySet Name="Articles" EntityType="Self.Article" />
-          <EntitySet Name="ArticleCategories" EntityType="Self.ArticleCategory" />
-          <EntitySet Name="Clients" EntityType="Self.Client" />
-          <EntitySet Name="ClientCategories" EntityType="Self.ClientCategory" />
-          <EntitySet Name="Contacts" EntityType="Self.Contact" />
-          <EntitySet Name="ContactCategories" EntityType="Self.ContactCategory" />
-          <EntitySet Name="Orders" EntityType="Self.Order" />
-          <EntitySet Name="OrderDetails" EntityType="Self.OrderDetail" />
-          <EntitySet Name="Pictures" EntityType="Self.Picture" />
-          <EntitySet Name="PictureCategories" EntityType="Self.PictureCategory" />
-          <EntitySet Name="Products" EntityType="Self.Product" />
-          <EntitySet Name="ProductCategories" EntityType="Self.ProductCategory" />
-          <EntitySet Name="ProductComments" EntityType="Self.ProductComment" />
-          <EntitySet Name="ProductMainCategories" EntityType="Self.ProductMainCategory" />
-          <EntitySet Name="ProductVotes" EntityType="Self.ProductVote" />
-          <AssociationSet Name="FK__Account__Account__1273C1CD" Association="Self.FK__Account__Account__1273C1CD">
-            <End Role="AccountCategory" EntitySet="AccountCategories" />
-            <End Role="Account" EntitySet="Accounts" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Article__CreateB__239E4DCF" Association="Self.FK__Article__CreateB__239E4DCF">
-            <End Role="Account" EntitySet="Accounts" />
-            <End Role="Article" EntitySet="Articles" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ArticleCa__Creat__1FCDBCEB" Association="Self.FK__ArticleCa__Creat__1FCDBCEB">
-            <End Role="Account" EntitySet="Accounts" />
-            <End Role="ArticleCategory" EntitySet="ArticleCategories" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ClientCat__Creat__2D27B809" Association="Self.FK__ClientCat__Creat__2D27B809">
-            <End Role="Account" EntitySet="Accounts" />
-            <End Role="ClientCategory" EntitySet="ClientCategories" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Contact__Approve__44FF419A" Association="Self.FK__Contact__Approve__44FF419A">
-            <End Role="Account" EntitySet="Accounts" />
-            <End Role="Contact" EntitySet="Contacts" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ContactCa__Creat__412EB0B6" Association="Self.FK__ContactCa__Creat__412EB0B6">
-            <End Role="Account" EntitySet="Accounts" />
-            <End Role="ContactCategory" EntitySet="ContactCategories" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Picture__CreateB__2A4B4B5E" Association="Self.FK__Picture__CreateB__2A4B4B5E">
-            <End Role="Account" EntitySet="Accounts" />
-            <End Role="Picture" EntitySet="Pictures" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PictureCa__Creat__267ABA7A" Association="Self.FK__PictureCa__Creat__267ABA7A">
-            <End Role="Account" EntitySet="Accounts" />
-            <End Role="PictureCategory" EntitySet="PictureCategories" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Product__CreateB__1CF15040" Association="Self.FK__Product__CreateB__1CF15040">
-            <End Role="Account" EntitySet="Accounts" />
-            <End Role="Product" EntitySet="Products" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ProductCa__Creat__1920BF5C" Association="Self.FK__ProductCa__Creat__1920BF5C">
-            <End Role="Account" EntitySet="Accounts" />
-            <End Role="ProductCategory" EntitySet="ProductCategories" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ProductMa__Creat__15502E78" Association="Self.FK__ProductMa__Creat__15502E78">
-            <End Role="Account" EntitySet="Accounts" />
-            <End Role="ProductMainCategory" EntitySet="ProductMainCategories" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Article__Article__300424B4" Association="Self.FK__Article__Article__300424B4">
-            <End Role="ArticleCategory" EntitySet="ArticleCategories" />
-            <End Role="Article" EntitySet="Articles" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Client__ClientCa__32E0915F" Association="Self.FK__Client__ClientCa__32E0915F">
-            <End Role="ClientCategory" EntitySet="ClientCategories" />
-            <End Role="Client" EntitySet="Clients" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Order__ClientID__37A5467C" Association="Self.FK__Order__ClientID__37A5467C">
-            <End Role="Client" EntitySet="Clients" />
-            <End Role="Order" EntitySet="Orders" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ProductCo__Clien__412EB0B6" Association="Self.FK__ProductCo__Clien__412EB0B6">
-            <End Role="Client" EntitySet="Clients" />
-            <End Role="ProductComment" EntitySet="ProductComments" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ProductVo__Clien__440B1D61" Association="Self.FK__ProductVo__Clien__440B1D61">
-            <End Role="Client" EntitySet="Clients" />
-            <End Role="ProductVote" EntitySet="ProductVotes" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Contact__Contact__35BCFE0A" Association="Self.FK__Contact__Contact__35BCFE0A">
-            <End Role="ContactCategory" EntitySet="ContactCategories" />
-            <End Role="Contact" EntitySet="Contacts" />
-          </AssociationSet>
-          <AssociationSet Name="FK__OrderDeta__Order__38996AB5" Association="Self.FK__OrderDeta__Order__38996AB5">
-            <End Role="Order" EntitySet="Orders" />
-            <End Role="OrderDetail" EntitySet="OrderDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK__OrderDeta__Produ__398D8EEE" Association="Self.FK__OrderDeta__Produ__398D8EEE">
-            <End Role="Product" EntitySet="Products" />
-            <End Role="OrderDetail" EntitySet="OrderDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Picture__Picture__3B75D760" Association="Self.FK__Picture__Picture__3B75D760">
-            <End Role="PictureCategory" EntitySet="PictureCategories" />
-            <End Role="Picture" EntitySet="Pictures" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Product__Product__3E52440B" Association="Self.FK__Product__Product__3E52440B">
-            <End Role="ProductCategory" EntitySet="ProductCategories" />
-            <End Role="Product" EntitySet="Products" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ProductCo__Produ__4222D4EF" Association="Self.FK__ProductCo__Produ__4222D4EF">
-            <End Role="Product" EntitySet="Products" />
-            <End Role="ProductComment" EntitySet="ProductComments" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ProductVo__Produ__44FF419A" Association="Self.FK__ProductVo__Produ__44FF419A">
-            <End Role="Product" EntitySet="Products" />
-            <End Role="ProductVote" EntitySet="ProductVotes" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ProductCa__Produ__403A8C7D" Association="Self.FK__ProductCa__Produ__403A8C7D">
-            <End Role="ProductMainCategory" EntitySet="ProductMainCategories" />
-            <End Role="ProductCategory" EntitySet="ProductCategories" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1385,271 +1386,272 @@
           <EntitySetMapping Name="Accounts">
             <EntityTypeMapping TypeName="DBModel.Account">
               <MappingFragment StoreEntitySet="Account">
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
-                <ScalarProperty Name="Thumb" ColumnName="Thumb" />
-                <ScalarProperty Name="FullName" ColumnName="FullName" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
                 <ScalarProperty Name="AccountCategoryID" ColumnName="AccountCategoryID" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Thumb" ColumnName="Thumb" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AccountCategories">
             <EntityTypeMapping TypeName="DBModel.AccountCategory">
               <MappingFragment StoreEntitySet="AccountCategory">
-                <ScalarProperty Name="AccountCategoryID" ColumnName="AccountCategoryID" />
-                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
-                <ScalarProperty Name="Thumb" ColumnName="Thumb" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Code" ColumnName="Code" />
-                <ScalarProperty Name="Position" ColumnName="Position" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Thumb" ColumnName="Thumb" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="AccountCategoryID" ColumnName="AccountCategoryID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Articles">
             <EntityTypeMapping TypeName="DBModel.Article">
               <MappingFragment StoreEntitySet="Article">
-                <ScalarProperty Name="ArticleID" ColumnName="ArticleID" />
-                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
-                <ScalarProperty Name="Thumb" ColumnName="Thumb" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Content" ColumnName="Content" />
-                <ScalarProperty Name="Position" ColumnName="Position" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-                <ScalarProperty Name="ArticleCategoryID" ColumnName="ArticleCategoryID" />
+                <ScalarProperty Name="Views" ColumnName="Views" />
                 <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="ArticleCategoryID" ColumnName="ArticleCategoryID" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Thumb" ColumnName="Thumb" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="ArticleID" ColumnName="ArticleID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ArticleCategories">
             <EntityTypeMapping TypeName="DBModel.ArticleCategory">
               <MappingFragment StoreEntitySet="ArticleCategory">
-                <ScalarProperty Name="ArticleCategoryID" ColumnName="ArticleCategoryID" />
-                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
-                <ScalarProperty Name="Thumb" ColumnName="Thumb" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Code" ColumnName="Code" />
-                <ScalarProperty Name="Position" ColumnName="Position" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
                 <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Thumb" ColumnName="Thumb" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="ArticleCategoryID" ColumnName="ArticleCategoryID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Clients">
             <EntityTypeMapping TypeName="DBModel.Client">
               <MappingFragment StoreEntitySet="Client">
-                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="FullName" ColumnName="FullName" />
-                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
                 <ScalarProperty Name="ClientCategoryID" ColumnName="ClientCategoryID" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ClientCategories">
             <EntityTypeMapping TypeName="DBModel.ClientCategory">
               <MappingFragment StoreEntitySet="ClientCategory">
-                <ScalarProperty Name="ClientCategoryID" ColumnName="ClientCategoryID" />
-                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
-                <ScalarProperty Name="Thumb" ColumnName="Thumb" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Code" ColumnName="Code" />
-                <ScalarProperty Name="Position" ColumnName="Position" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
                 <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Thumb" ColumnName="Thumb" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="ClientCategoryID" ColumnName="ClientCategoryID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Contacts">
             <EntityTypeMapping TypeName="DBModel.Contact">
               <MappingFragment StoreEntitySet="Contact">
-                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
-                <ScalarProperty Name="FullName" ColumnName="FullName" />
-                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Content" ColumnName="Content" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-                <ScalarProperty Name="ContactCategoryID" ColumnName="ContactCategoryID" />
                 <ScalarProperty Name="ApproveBy" ColumnName="ApproveBy" />
+                <ScalarProperty Name="ContactCategoryID" ColumnName="ContactCategoryID" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ContactCategories">
             <EntityTypeMapping TypeName="DBModel.ContactCategory">
               <MappingFragment StoreEntitySet="ContactCategory">
-                <ScalarProperty Name="ContactCategoryID" ColumnName="ContactCategoryID" />
-                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
-                <ScalarProperty Name="Thumb" ColumnName="Thumb" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Code" ColumnName="Code" />
-                <ScalarProperty Name="Position" ColumnName="Position" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
                 <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Thumb" ColumnName="Thumb" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="ContactCategoryID" ColumnName="ContactCategoryID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Orders">
             <EntityTypeMapping TypeName="DBModel.Order">
               <MappingFragment StoreEntitySet="Order">
-                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
-                <ScalarProperty Name="FullName" ColumnName="FullName" />
-                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Total" ColumnName="Total" />
-                <ScalarProperty Name="Bonus" ColumnName="Bonus" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
-                <ScalarProperty Name="ConfirmStatus" ColumnName="ConfirmStatus" />
-                <ScalarProperty Name="ChargeStatus" ColumnName="ChargeStatus" />
-                <ScalarProperty Name="DeliveStatus" ColumnName="DeliveStatus" />
                 <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="DeliveStatus" ColumnName="DeliveStatus" />
+                <ScalarProperty Name="ChargeStatus" ColumnName="ChargeStatus" />
+                <ScalarProperty Name="ConfirmStatus" ColumnName="ConfirmStatus" />
+                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Bonus" ColumnName="Bonus" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OrderDetails">
             <EntityTypeMapping TypeName="DBModel.OrderDetail">
               <MappingFragment StoreEntitySet="OrderDetail">
-                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
-                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Pictures">
             <EntityTypeMapping TypeName="DBModel.Picture">
               <MappingFragment StoreEntitySet="Picture">
-                <ScalarProperty Name="PictureID" ColumnName="PictureID" />
-                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
-                <ScalarProperty Name="Thumb" ColumnName="Thumb" />
-                <ScalarProperty Name="ImageList" ColumnName="ImageList" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Url" ColumnName="Url" />
-                <ScalarProperty Name="Position" ColumnName="Position" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-                <ScalarProperty Name="PictureCategoryID" ColumnName="PictureCategoryID" />
                 <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="PictureCategoryID" ColumnName="PictureCategoryID" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ImageList" ColumnName="ImageList" />
+                <ScalarProperty Name="Thumb" ColumnName="Thumb" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="PictureID" ColumnName="PictureID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PictureCategories">
             <EntityTypeMapping TypeName="DBModel.PictureCategory">
               <MappingFragment StoreEntitySet="PictureCategory">
-                <ScalarProperty Name="PictureCategoryID" ColumnName="PictureCategoryID" />
-                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
-                <ScalarProperty Name="Thumb" ColumnName="Thumb" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Code" ColumnName="Code" />
-                <ScalarProperty Name="Position" ColumnName="Position" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
                 <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Thumb" ColumnName="Thumb" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="PictureCategoryID" ColumnName="PictureCategoryID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="DBModel.Product">
               <MappingFragment StoreEntitySet="Product">
-                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
-                <ScalarProperty Name="Thumb" ColumnName="Thumb" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Code" ColumnName="Code" />
-                <ScalarProperty Name="Specification" ColumnName="Specification" />
-                <ScalarProperty Name="Content" ColumnName="Content" />
-                <ScalarProperty Name="Warranty" ColumnName="Warranty" />
-                <ScalarProperty Name="Accessories" ColumnName="Accessories" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="OldPrice" ColumnName="OldPrice" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="ImageList" ColumnName="ImageList" />
-                <ScalarProperty Name="Position" ColumnName="Position" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-                <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
                 <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="ImageList" ColumnName="ImageList" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="OldPrice" ColumnName="OldPrice" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Accessories" ColumnName="Accessories" />
+                <ScalarProperty Name="Warranty" ColumnName="Warranty" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Specification" ColumnName="Specification" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Thumb" ColumnName="Thumb" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProductCategories">
             <EntityTypeMapping TypeName="DBModel.ProductCategory">
               <MappingFragment StoreEntitySet="ProductCategory">
-                <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
-                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
-                <ScalarProperty Name="Thumb" ColumnName="Thumb" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Code" ColumnName="Code" />
-                <ScalarProperty Name="Position" ColumnName="Position" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-                <ScalarProperty Name="ProductMainCategoryID" ColumnName="ProductMainCategoryID" />
                 <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="ProductMainCategoryID" ColumnName="ProductMainCategoryID" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Thumb" ColumnName="Thumb" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProductComments">
             <EntityTypeMapping TypeName="DBModel.ProductComment">
               <MappingFragment StoreEntitySet="ProductComment">
-                <ScalarProperty Name="ProductCommentID" ColumnName="ProductCommentID" />
-                <ScalarProperty Name="Content" ColumnName="Content" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
-                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="ProductCommentID" ColumnName="ProductCommentID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProductMainCategories">
             <EntityTypeMapping TypeName="DBModel.ProductMainCategory">
               <MappingFragment StoreEntitySet="ProductMainCategory">
-                <ScalarProperty Name="ProductMainCategoryID" ColumnName="ProductMainCategoryID" />
-                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
-                <ScalarProperty Name="Thumb" ColumnName="Thumb" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Code" ColumnName="Code" />
-                <ScalarProperty Name="Position" ColumnName="Position" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
                 <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Thumb" ColumnName="Thumb" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="ProductMainCategoryID" ColumnName="ProductMainCategoryID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProductVotes">
             <EntityTypeMapping TypeName="DBModel.ProductVote">
               <MappingFragment StoreEntitySet="ProductVote">
-                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
-                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
                 <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

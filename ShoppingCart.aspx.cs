@@ -31,4 +31,28 @@ public partial class ShoppingCart : System.Web.UI.Page
         Repeater_Main.DataSource = SessionUtility.MyCart.CartItems;
         Repeater_Main.DataBind();
     }
+
+    protected void LinkButton_Minus_Click(object sender, EventArgs e)
+    {
+        LinkButton LinkButton_Minus = sender as LinkButton;
+        int ID = LinkButton_Minus.CommandArgument.ToInt();
+        CartItem item = SessionUtility.MyCart.CartItems.FirstOrDefault(x => x.ProductID == ID);
+        if (item != null && item.Quantity >= 1)
+        {
+            item.Quantity -= 1;
+        }
+        LoadData();
+    }
+
+    protected void LinkButton_Plus_Click(object sender, EventArgs e)
+    {
+        LinkButton LinkButton_Plus = sender as LinkButton;
+        int ID = LinkButton_Plus.CommandArgument.ToInt();
+        CartItem item = SessionUtility.MyCart.CartItems.FirstOrDefault(x => x.ProductID == ID);
+        if (item != null)
+        {
+            item.Quantity += 1;
+        }
+        LoadData();
+    }
 }

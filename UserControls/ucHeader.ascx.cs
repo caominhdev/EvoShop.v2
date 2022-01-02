@@ -60,4 +60,30 @@ public partial class ucHeader : System.Web.UI.UserControl
         SessionUtility.MyCart.CartItems.Clear();
         LoadData();
     }
+
+
+
+    protected void LinkButton_Plus_Click(object sender, EventArgs e)
+    {
+        LinkButton LinkButton_Plus = sender as LinkButton;
+        int id = LinkButton_Plus.CommandArgument.ToInt();
+        CartItem item = SessionUtility.MyCart.CartItems.FirstOrDefault(x => x.ProductID == id);
+        if (item != null)
+        {
+            item.Quantity += 1;
+        }
+        LoadData();
+    }
+
+    protected void LinkButton_Minus_Click(object sender, EventArgs e)
+    {
+        LinkButton LinkButton_Minus = sender as LinkButton;
+        int id = LinkButton_Minus.CommandArgument.ToInt();
+        CartItem item = SessionUtility.MyCart.CartItems.FirstOrDefault(x => x.ProductID == id);
+        if (item != null && item.Quantity > 1)
+        {
+            item.Quantity -= 1;
+        }
+        LoadData();
+    }
 }

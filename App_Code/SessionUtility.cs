@@ -22,10 +22,6 @@ public class SessionUtility
             return _MyCart;
         }
     }
-
-    private static Cart _Cart;
-
-
     public static Client MyClient
     {
         get

@@ -46,7 +46,7 @@
                                     <div class="tg-sectionhead">
                                         <h2><span>People’s Choice</span>Hot Deal</h2>
                                     </div>
-                                    <uc1:ucProductHot runat="server" id="ucProductHot" />
+                                    <uc1:ucProductHot runat="server" ID="ucProductHot" />
 
                                     <div class="tg-productgrid">
                                         <div class="tg-refinesearch">
@@ -56,12 +56,15 @@
                                                     <div class="form-group">
                                                         <label>Xếp theo:</label>
                                                         <span class="tg-select">
-                                                            <select>
-                                                                <option>Tên A-Z</option>
-                                                                <option>Tên Z-A</option>
-                                                                <option>Giá thấp đến cao</option>
-                                                                <option>Giá cao đến thấp</option>
-                                                            </select>
+                                                            <asp:DropDownList runat="server"
+                                                                ID="DropDownList_Option"
+                                                                OnSelectedIndexChanged="DropDownList_Option_SelectedIndexChanged"
+                                                                AutoPostBack="true">
+                                                                <asp:ListItem Value="0">Tên A-Z</asp:ListItem>
+                                                                <asp:ListItem Value="1">Tên Z-A</asp:ListItem>
+                                                                <asp:ListItem Value="2">Giá thấp đến cao</asp:ListItem>
+                                                                <asp:ListItem Value="3">Giá cao đến thấp</asp:ListItem>
+                                                            </asp:DropDownList>
                                                         </span>
                                                     </div>
                                                     <!--<div class="form-group">
@@ -77,68 +80,74 @@
                                                     <div class="form-group">
                                                         <label>Giá:</label>
                                                         <span class="tg-select">
-                                                            <select>
-                                                                <option>Dưới 4 triệu</option>
-                                                                <option>Từ 4 - 8 triệu</option>
-                                                                <option>Từ 8 - 13 triệu</option>
-                                                                <option>Từ 13 - 20 triệu</option>
-                                                                <option>Từ 20 - 25 triệu</option>
-                                                                <option>Trên 25 triệu</option>
-                                                            </select>
+                                                            <asp:DropDownList runat="server"
+                                                                ID="DropDownList_Price"
+                                                                OnSelectedIndexChanged="DropDownList_Price_SelectedIndexChanged"
+                                                                AutoPostBack="true">
+                                                                <asp:ListItem Value="<4">Dưới 4 triệu</asp:ListItem>
+                                                                <asp:ListItem Value="4-8">Từ 4 - 8 triệu</asp:ListItem>
+                                                                <asp:ListItem Value="8-13">Từ 8 - 13 triệu</asp:ListItem>
+                                                                <asp:ListItem Value="13-20">Từ 13 - 20 triệu</asp:ListItem>
+                                                                <asp:ListItem Value="20-25">Từ 20 - 25 triệu</asp:ListItem>
+                                                                <asp:ListItem Value="25>">Trên 25 triệu</asp:ListItem>
+                                                            </asp:DropDownList>
                                                         </span>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label>Bộ nhớ trong:</label>
-                                                        <span class="tg-select">
-                                                            <select>
-                                                                <option>8GB</option>
-                                                                <option>16GB</option>
-                                                                <option>32GB</option>
-                                                                <option>64GB</option>
-                                                                <option>128GB</option>
-                                                                <option>256GB</option>
-                                                                <option>512GB</option>
-                                                            </select>
-                                                        </span>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>RAM:</label>
-                                                        <span class="tg-select">
-                                                            <select>
-                                                                <option>1GB</option>
-                                                                <option>2GB</option>
-                                                                <option>3GB</option>
-                                                                <option>4GB</option>
-                                                                <option>6GB</option>
-                                                                <option>8GB</option>
-                                                                <option>12GB</option>
-                                                            </select>
-                                                        </span>
-                                                    </div>
+                                                    <%--<div class="form-group">
+                                                                <label>Bộ nhớ trong:</label>
+                                                                <span class="tg-select">
+                                                                    <select>
+                                                                        <option>8GB</option>
+                                                                        <option>16GB</option>
+                                                                        <option>32GB</option>
+                                                                        <option>64GB</option>
+                                                                        <option>128GB</option>
+                                                                        <option>256GB</option>
+                                                                        <option>512GB</option>
+                                                                    </select>
+                                                                </span>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label>RAM:</label>
+                                                                <span class="tg-select">
+                                                                    <select>
+                                                                        <option>1GB</option>
+                                                                        <option>2GB</option>
+                                                                        <option>3GB</option>
+                                                                        <option>4GB</option>
+                                                                        <option>6GB</option>
+                                                                        <option>8GB</option>
+                                                                        <option>12GB</option>
+                                                                    </select>
+                                                                </span>
+                                                            </div>--%>
                                                     <div class="form-group">
                                                         <label>Hãng điện thoại:</label>
                                                         <span class="tg-select">
-                                                            <select>
-                                                                <option>iPhone</option>
-                                                                <option>Samsung</option>
-                                                                <option>Oppo</option>
-                                                                <option>Vivo</option>
-                                                                <option>Xiaomi</option>
-                                                                <option>Realme</option>
-                                                            </select>
+                                                            <asp:DropDownList runat="server"
+                                                                ID="DropDownList_Category"
+                                                                OnSelectedIndexChanged="DropDownList_Category_SelectedIndexChanged"
+                                                                AutoPostBack="true">
+                                                                <asp:ListItem Value="iphone">iPhone</asp:ListItem>
+                                                                <asp:ListItem Value="samsung">Samsung</asp:ListItem>
+                                                                <asp:ListItem Value="oppo">Oppo</asp:ListItem>
+                                                                <asp:ListItem Value="vivo">Vivo</asp:ListItem>
+                                                                <asp:ListItem Value="xiaomi">Xiaomi</asp:ListItem>
+                                                                <asp:ListItem Value="realme">Realme</asp:ListItem>
+                                                            </asp:DropDownList>
                                                         </span>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label>Hãng laptop:</label>
-                                                        <span class="tg-select">
-                                                            <select>
-                                                                <option>Gaming</option>
-                                                                <option>Macbook</option>
-                                                                <option>Học tập, văn phòng</option>
-                                                                <option>Đồ họa, kỹ thuật</option>
-                                                            </select>
-                                                        </span>
-                                                    </div>
+                                                    <%--<div class="form-group">
+                                                                <label>Hãng laptop:</label>
+                                                                <span class="tg-select">
+                                                                    <select>
+                                                                        <option>Gaming</option>
+                                                                        <option>Macbook</option>
+                                                                        <option>Học tập, văn phòng</option>
+                                                                        <option>Đồ họa, kỹ thuật</option>
+                                                                    </select>
+                                                                </span>
+                                                            </div>--%>
                                                 </fieldset>
                                             </div>
                                         </div>
@@ -163,9 +172,9 @@
                                                             </ul>
                                                             <div class="tg-themetagbox"><span class="tg-themetag">sale</span></div>
                                                             <div class="tg-booktitle">
-                                                                <h3> <a href='<%# "/ProductDetail.aspx?id={0}&title={1}".StringFormat(Eval("ProductID"), Eval("Title").ToUrlFormat()) %>'>
-                                                                        <%# Eval("Title") %>
-                                                                    </a></h3>
+                                                                <h3><a href='<%# "/ProductDetail.aspx?id={0}&title={1}".StringFormat(Eval("ProductID"), Eval("Title").ToUrlFormat()) %>'>
+                                                                    <%# Eval("Title") %>
+                                                                </a></h3>
                                                             </div>
                                                             <span class="tg-bookwriter"><a href="javascript:void(0);">Online giá rẻ</a></span>
                                                             <span class="tg-stars"><span></span></span>

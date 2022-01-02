@@ -94,12 +94,35 @@
                                                                 <%--<img alt="image description" src="images/products/iphone-12-pro-max-xanh-duong-new-600x600-600x600-d0fd627a-ffa5-4297-9db4-e09f4cd78f6c.jpg" />--%>
                                                             </figure>
                                                             <div class="tg-minicarproductdata">
-                                                                <h5><a href='<%# "/ProductDetail.aspx?id={0}&title={1}".StringFormat(Eval("ProductID"), Eval("Title").ToUrlFormat()) %>'>
-                                                                    <%# Eval("Title").Left(20, true, true) %>
-                                                                </a></h5>
+                                                                <h5>
+                                                                    <a href='<%# "/ProductDetail.aspx?id={0}&title={1}".StringFormat(Eval("ProductID"), Eval("Title").ToUrlFormat()) %>'>
+                                                                        <%# Eval("Title").Left(20, true, true) %>
+                                                                    </a>
+                                                                </h5>
                                                                 <div class="minicarproductdata-number">
                                                                     <a style="margin-right: 10px; color: #484848" href="#">Số lượng:</a>
-                                                                    <input type="number" value='<%# Eval("Quantity") %>' min="0" />
+                                                                    <div class="quantity-select qty_drop_cart">
+                                                                        <asp:LinkButton runat="server"
+                                                                            ID="LinkButton_Minus"
+                                                                            OnClick="LinkButton_Minus_Click"
+                                                                            CommandArgument='<%# Eval("ProductID") %>'
+                                                                            class="btn_reduced reduced items-count btn-minus">
+                                                                            -
+                                                                        </asp:LinkButton>
+                                                                        <input
+                                                                            type="text"
+                                                                            maxlength="3"
+                                                                            readonly
+                                                                            class="input-text number-sidebar"
+                                                                            value='<%# Eval("Quantity") %>' />
+                                                                        <asp:LinkButton runat="server"
+                                                                            ID="LinkButton_Plus"
+                                                                            OnClick="LinkButton_Plus_Click"
+                                                                            CommandArgument='<%# Eval("ProductID") %>'
+                                                                            class="btn_increase increase items-count btn-plus">
+                                                                            +
+                                                                        </asp:LinkButton>
+                                                                    </div>
                                                                     <asp:LinkButton runat="server"
                                                                         ID="LinkButton_Remove"
                                                                         CommandArgument='<%# Eval("ProductID") %>'
@@ -119,7 +142,7 @@
 
                                             </div>
                                             <div class="tg-minicartfoot">
-                                                <asp:LinkButton 
+                                                <asp:LinkButton
                                                     runat="server"
                                                     ID="LinkButton_RemoveAll"
                                                     CommandArgument='<%# Eval("ProductID") %>'
