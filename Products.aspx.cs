@@ -42,7 +42,7 @@ public partial class Products : System.Web.UI.Page
         {
             query = query.Where(x => x.ProductCategory.ProductMainCategoryID == mid);
         }
-        int pageSize = 10;
+        int pageSize = 12;
         int maxPage = 5;
         int page = Request.QueryString["page"].ToInt();
         if (page <= 0)
@@ -93,7 +93,7 @@ public partial class Products : System.Web.UI.Page
             return;
         }
 
-        int pageSize = 10;
+        int pageSize = 12;
         int maxPage = 5;
         int page = Request.QueryString["page"].ToInt();
         if (page <= 0)
@@ -146,7 +146,7 @@ public partial class Products : System.Web.UI.Page
         {
             return;
         }
-        int pageSize = 10;
+        int pageSize = 12;
         int maxPage = 5;
         int page = Request.QueryString["page"].ToInt();
         if (page <= 0)
@@ -209,7 +209,7 @@ public partial class Products : System.Web.UI.Page
             return;
         }
 
-        int pageSize = 10;
+        int pageSize = 12;
         int maxPage = 5;
         int page = Request.QueryString["page"].ToInt();
         if (page <= 0)

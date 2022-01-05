@@ -91,7 +91,6 @@
                                                         <div class="tg-minicarproduct">
                                                             <figure>
                                                                 <img class="tg-minicarproduct-image-product" src="<%# Eval("Avatar") %>" />
-                                                                <%--<img alt="image description" src="images/products/iphone-12-pro-max-xanh-duong-new-600x600-600x600-d0fd627a-ffa5-4297-9db4-e09f4cd78f6c.jpg" />--%>
                                                             </figure>
                                                             <div class="tg-minicarproductdata">
                                                                 <h5>
@@ -132,8 +131,7 @@
                                                                     </asp:LinkButton>
                                                                 </div>
                                                                 <h6 style="margin-top: 10px;">
-                                                                    <span>Giá: </span>
-                                                                    <a href='<%# "/ProductDetail.aspx?id={0}&title={1}".StringFormat(Eval("ProductID"), Eval("Title").ToUrlFormat()) %>'><%# Eval("Price","{0:n0}₫") %></a>
+                                                                    <span>Giá: <%# (Eval("Quantity").ToInt() * Eval("Price").ToDouble()).ToString("n0") %>đ </span>
                                                                 </h6>
                                                             </div>
                                                         </div>

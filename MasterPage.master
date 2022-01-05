@@ -14,7 +14,6 @@
 
 <html class="no-js" lang="zxx">
 <head runat="server">
-    <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
     <uc1:ucCSS runat="server" ID="ucCSS" />
 </head>

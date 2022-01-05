@@ -64,26 +64,16 @@
                                             CommandArgument='<%# Eval("ProductID") %>'
                                             ClientIDMode="AutoID"
                                             OnClick="LinkButton_Remove_Click" class="remove-product">
-                               Xóa
+                                            Xóa
                                         </asp:LinkButton>
                                     </div>
-                                    <div class="product-line-price"><%# Eval("OldPrice","{0:n0}₫") %></div>
+                                    <div class="product-line-price">
+                                        <%# (Eval("Quantity").ToInt() * Eval("Price").ToDouble()).ToString("n0") %>đ
+                                    </div>
                                 </div>
                             </ItemTemplate>
                         </asp:Repeater>
                         <div class="totals">
-                            <div class="totals-item">
-                                <label>Tổng</label>
-                                <div runat="server" id="div_Total" class="totals-value"></div>
-                            </div>
-                            <div class="totals-item">
-                                <label>Mã giảm giá (20%)</label>
-                                <div runat="server" id="div_SaleOff" class="totals-value"></div>
-                            </div>
-                            <div class="totals-item">
-                                <label>Phí vận chuyển</label>
-                                <div runat="server" class="totals-value">0đ</div>
-                            </div>
                             <div class="totals-item totals-item-total">
                                 <label>Tổng cộng</label>
                                 <div runat="server" id="div_Amount" class="totals-value"></div>

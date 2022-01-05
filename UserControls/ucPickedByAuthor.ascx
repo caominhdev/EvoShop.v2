@@ -17,14 +17,14 @@
                                 <figure class="tg-featureimg">
                                     <div class="tg-bookimg">
                                         <div class="tg-frontcover">
-                                             <img src="<%# Eval("Avatar") %>" />
+                                            <img src="<%# Eval("Avatar") %>" />
                                         </div>
                                     </div>
                                     <div class="tg-hovercontent">
                                         <div class="tg-description">
                                         </div>
-                                        <strong class="tg-bookpage">Bộ nhớ: 256GB</strong>
-                                        <strong class="tg-bookcategory">Chip: Apple A14 Bionic
+                                        <strong class="tg-bookpage">Giao hàng miễn phí</strong>
+                                        <strong class="tg-bookcategory">Trạng thái: Còn hàng
                                         </strong>
                                         <strong class="tg-bookprice">Giá: <%# Eval("Price","{0:n0}₫") %></strong>
                                         <div class="tg-ratingbox"><span class="tg-stars"><span></span></span></div>

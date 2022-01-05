@@ -113,8 +113,6 @@ public partial class Checkout : System.Web.UI.Page
 
         //span_MessLogin.Visible = false;
         input_FullName.Value = SessionUtility.MyClient.FullName;
-        input_Email.Value = SessionUtility.MyClient.Email;
-        input_Mobile.Value = SessionUtility.MyClient.Mobile;
         input_Address.Value = SessionUtility.MyClient.Address;
     }
 }
