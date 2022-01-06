@@ -94,9 +94,9 @@
                                                                 </ContentTemplate>
                                                             </asp:UpdatePanel>
 
-                                                            <a class="tg-btnaddtowishlist" href="javascript:void(0);">
+                                                            <%--    <a class="tg-btnaddtowishlist" href="javascript:void(0);">
                                                                 <span>Thêm vào yêu thích</span>
-                                                            </a>
+                                                            </a>--%>
                                                         </div>
                                                     </div>
                                                 </div>
