@@ -5,49 +5,83 @@
 jQuery(document).on('ready', function () {
     "use strict";
     //
-    $(".typeahead").autocomplete({
-        source: function (req, res) {
-            $.ajax({
-                type: "POST",
-                url: "Search.asmx/GetListProduct",
-                data: "{'keyword':'" + req.term + "'}",
-                contentType: "application/json",
-                dataType: "json",
-                success: function (data) {
-                    res($.map(data.d, function (item) {
-                        return {
-                            Title: item.Title,
-                            Avatar: item.Avatar,
-                            Price: item.Price
-                        }
-                    }))
-                }
-                , error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    alert(textStatus);
+    var substringMatcher = function (strs) {
+        return function findMatches(q, cb) {
+            var matches, substringRegex;
+            matches = [];
+            substringRegex = new RegExp(q, 'i');
+            $.each(strs, function (i, str) {
+                if (substringRegex.test(str)) {
+                    matches.push(str);
                 }
             });
-        },
-        focus: function (event, ui) {
-            // this is for when focus of autocomplete item 
-            $(".typeahead").val(ui.item.Title);
-            return false;
-        },
-        select: function (event, ui) {
-            // this is for when select autocomplete item
-            $(".typeahead").val(ui.item.Title);
-            return false;
-        }
-    }).data('ui-autocomplete')._renderItem = function (ul, item) {
-        return $('<li  class="header__search-history-item">')
-            .append(`
-                        <img class="header__search-history-item-img" src="${item.Avatar}" />
-                        <div class="header__search-history-item-content">
-                            <a class="header__search-history-item-title" href="#">
-                                ${item.Title}
-                            </a>
-                            <span class="header__search-history-item-price"> ${item.Price}</span>
-                        </div>`).appendTo(ul);
-    }
+            cb(matches);
+        };
+    };
+    var states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
+        'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii',
+        'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana',
+        'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
+        'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
+        'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota',
+        'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island',
+        'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
+        'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
+    ];
+    $('.typeahead').typeahead({
+        hint: true,
+        highlight: true,
+        minLength: 1
+    },
+        {
+            name: 'states',
+            source: substringMatcher(states)
+        });
+
+
+    //$(".typeahead").autocomplete({
+    //    source: function (req, res) {
+    //        $.ajax({
+    //            type: "POST",
+    //            url: "Search.asmx/GetListProduct",
+    //            data: "{'keyword':'" + req.term + "'}",
+    //            contentType: "application/json",
+    //            dataType: "json",
+    //            success: function (data) {
+    //                res($.map(data.d, function (item) {
+    //                    return {
+    //                        Title: item.Title,
+    //                        Avatar: item.Avatar,
+    //                        Price: item.Price
+    //                    }
+    //                }))
+    //            }
+    //            , error: function (XMLHttpRequest, textStatus, errorThrown) {
+    //                alert(textStatus);
+    //            }
+    //        });
+    //    },
+    //    focus: function (event, ui) {
+    //        // this is for when focus of autocomplete item 
+    //        $(".typeahead").val(ui.item.Title);
+    //        return false;
+    //    },
+    //    select: function (event, ui) {
+    //        // this is for when select autocomplete item
+    //        $(".typeahead").val(ui.item.Title);
+    //        return false;
+    //    }
+    //}).data('ui-autocomplete')._renderItem = function (ul, item) {
+    //    return $('<li  class="header__search-history-item">')
+    //        .append(`
+    //                    <img class="header__search-history-item-img" src="${item.Avatar}" />
+    //                    <div class="header__search-history-item-content">
+    //                        <a class="header__search-history-item-title" href="#">
+    //                            ${item.Title}
+    //                        </a>
+    //                        <span class="header__search-history-item-price"> ${item.Price}</span>
+    //                    </div>`).appendTo(ul);
+    //}
 
     jQuery('.tg-themetabnav > li > a').hover(function () {
         jQuery(this).tab('show');

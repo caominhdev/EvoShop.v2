@@ -9,9 +9,9 @@
             <div class="tg-featureditm">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 hidden-sm hidden-xs">
-                        <figure>
-                             <img alt="image description" src='<%# Eval("Avatar") %>' />
-                        </figure>
+                        <a href='<%# "/ProductDetail.aspx?id={0}&title={1}".StringFormat(Eval("ProductID"), Eval("Title").ToUrlFormat()) %>'>
+                            <img alt="image description" src='<%# Eval("Avatar") %>' />
+                        </a>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 right-content-featureditm">
                         <div class="tg-featureditmcontent">

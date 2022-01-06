@@ -26,7 +26,8 @@ public partial class ucLatestNews : System.Web.UI.UserControl
                                    x.Title,
                                    x.Description,
                                    x.CreateTime,
-                                   x.CreateBy
+                                   x.CreateBy,
+                                   x.Views
                                });
 
         Repeater_Main.DataSource = query.Take(9).ToList();

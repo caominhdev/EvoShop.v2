@@ -7,9 +7,9 @@
                 <ItemTemplate>
                     <div class="tg-featureditm">
                         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 hidden-sm hidden-xs">
-                            <figure>
+                            <a href='<%# "/ProductDetail.aspx?id={0}&title={1}".StringFormat(Eval("ProductID"), Eval("Title").ToUrlFormat()) %>'>
                                 <img src="<%# Eval("Avatar") %>">
-                            </figure>
+                            </a>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                             <div class="tg-featureditmcontent">

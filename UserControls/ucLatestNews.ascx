@@ -32,8 +32,8 @@
                                 </div>
                                 <span class="tg-bookwriter">Đăng bởi: <a href="javascript:void(0);"><%# Eval("CreateBy") %></a></span>
                                 <ul class="tg-postmetadata">
-                                    <li><a href="javascript:void(0);"><i class="fa fa-comment-o"></i><i>415 Bình Luận</i></a></li>
-                                    <li><a href="javascript:void(0);"><i class="fa fa-eye"></i><i>1565 Lượt xem</i></a></li>
+                                    <%--<li><a href="javascript:void(0);"><i class="fa fa-comment-o"></i><i>415 Bình Luận</i></a></li>--%>
+                                    <li><a href="javascript:void(0);"><i class="fa fa-eye"></i><i><%# Eval("Views") %> Lượt xem</i></a></li>
                                 </ul>
                             </div>
                         </article>

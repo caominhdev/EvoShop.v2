@@ -17,12 +17,16 @@ public class Search : System.Web.Services.WebService
 {
     [WebMethod]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-    public static List<Product> GetListProduct(string keyword)
+    public static object GetListProduct(string keyword)
     {
-        List<Product> item = new List<Product>();
         DBEntities db = new DBEntities();
-        item = db.Products.Where(x => x.Title.StartsWith(keyword)).OrderBy(x => x.Title).ToList();
-        return item;
+        var item = db.Products.Where(x => x.Title.Contains(keyword)).OrderBy(x => x.Title).Select(x => new
+        {
+            x.Title,
+            x.Price,
+            x.Avatar
+        });
+        return item.ToList();
     }
 
 }

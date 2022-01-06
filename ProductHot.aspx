@@ -159,14 +159,14 @@
                                                             <div class="tg-postbook">
                                                                 <figure class="tg-featureimg">
                                                                     <div class="tg-bookimg">
-                                                                        <div class="tg-frontcover">
+                                                                        <a class="tg-frontcover" href='<%# "/ProductDetail.aspx?id={0}&title={1}".StringFormat(Eval("ProductID"), Eval("Title").ToUrlFormat()) %>'>
                                                                             <img alt="image description" src='<%# Eval("Avatar") %>' />
-                                                                        </div>
+                                                                        </a>
                                                                     </div>
-                                                                    <a class="tg-btnaddtowishlist" href="javascript:void(0);">
+                                                                    <%--<a class="tg-btnaddtowishlist" href="javascript:void(0);">
                                                                         <i class="icon-heart"></i>
                                                                         <span>Thêm yêu thích</span>
-                                                                    </a>
+                                                                    </a>--%>
                                                                 </figure>
                                                                 <div class="tg-postbookcontent">
                                                                     <ul class="tg-bookscategories">

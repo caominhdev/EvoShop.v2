@@ -14,5 +14,6 @@
 <script src="js/countTo.js"></script>
 <script src="js/appear.js"></script>
 <script src="js/gmap3.js"></script>
-<script src="js/main.js"></script>
 <script src="/plugins/toast/jquery.toast.min.js"></script>
+<script src="js/typeahead.bundle.js"></script>
+<script src="js/main.js"></script>

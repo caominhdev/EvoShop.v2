@@ -24,7 +24,7 @@ public partial class CheckoutComplete : System.Web.UI.Page
             //Nếu khách chọn trả tiền tại nhà
             if (paymentMethod == 0)
             {
-                ucMessage.ShowSuccess("Xin chúc mừng, đơn hàng của bạn đã được lập. Bạn có thể thanh toán sau khi nhận được hàng tại nhà. <a style='display:contents' href='OrderDetail.aspx'>Xem đơn hàng</a>");
+                ucMessage.ShowSuccess("Xin chúc mừng, đơn hàng của bạn đã được lập. Bạn có thể thanh toán sau khi nhận được hàng tại nhà. ");
                 SessionUtility.MyCart.CartItems.Clear();
             }
             else //Thanh toán trực tuyến tại ngân lượng

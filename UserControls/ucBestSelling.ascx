@@ -23,10 +23,10 @@
                                                 </div>
                                             </a>
                                         </div>
-                                        <a class="tg-btnaddtowishlist" href="#">
+                                        <%-- <a class="tg-btnaddtowishlist" href="#">
                                             <i class="icon-heart"></i>
                                             <span>Thêm Yêu thích</span>
-                                        </a>
+                                        </a>--%>
                                     </figure>
                                     <div class="tg-postbookcontent">
                                         <ul class="tg-bookscategories">

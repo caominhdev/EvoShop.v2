@@ -5,6 +5,10 @@
 <%@ Register Src="~/UserControls/ucLeftCategory.ascx" TagPrefix="uc1" TagName="ucLeftCategory" %>
 <%@ Register Src="~/UserControls/ucBestSellingProducts.ascx" TagPrefix="uc1" TagName="ucBestSellingProducts" %>
 <%@ Register Src="~/UserControls/ucPagination.ascx" TagPrefix="uc1" TagName="ucPagination" %>
+<%@ Register Src="~/UserControls/ucArticleSearch.ascx" TagPrefix="uc1" TagName="ucArticleSearch" %>
+<%@ Register Src="~/UserControls/ucArticleCategory.ascx" TagPrefix="uc1" TagName="ucArticleCategory" %>
+
+
 
 
 
@@ -86,8 +90,8 @@
                         </div>
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3 pull-right">
                             <aside id="tg-sidebar" class="tg-sidebar">
-                                <uc1:ucSearchMini runat="server" ID="ucSearchMini" />
-                                <uc1:ucLeftCategory runat="server" ID="ucLeftCategory" />
+                                <uc1:ucArticleSearch runat="server" ID="ucArticleSearch" />
+                                <uc1:ucArticleCategory runat="server" ID="ucArticleCategory" />
                                 <uc1:ucLeftArticle runat="server" ID="ucLeftArticle" />
                                 <uc1:ucBestSellingProducts runat="server" ID="ucBestSellingProducts" />
                             </aside>

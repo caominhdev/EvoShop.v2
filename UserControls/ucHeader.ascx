@@ -62,7 +62,7 @@
                         <uc1:ucMainMenu runat="server" ID="ucMainMenu" />
 
                         <div class="tg-wishlistandcart">
-                            <div class="dropdown tg-themedropdown tg-wishlistdropdown">
+                            <%--<div class="dropdown tg-themedropdown tg-wishlistdropdown">
                                 <a href="javascript:void(0);" id="tg-wishlisst" class="tg-btnthemedropdown" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
                                     <span class="tg-themebadge">3</span>
@@ -73,7 +73,7 @@
                                         <p>Không có sản phẩm nào được thêm vào danh sách yêu thích!</p>
                                     </div>
                                 </div>
-                            </div>
+                            </div>--%>
                             <div class="dropdown tg-themedropdown tg-minicartdropdown">
                                 <a href="javascript:void(0);" id="tg-minicart" class="tg-btnthemedropdown" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">

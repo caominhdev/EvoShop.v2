@@ -16,9 +16,9 @@
                             <div class="tg-postbook">
                                 <figure class="tg-featureimg">
                                     <div class="tg-bookimg">
-                                        <div class="tg-frontcover">
+                                        <a href='<%# "/ProductDetail.aspx?id={0}&title={1}".StringFormat(Eval("ProductID"), Eval("Title").ToUrlFormat()) %>' class="tg-frontcover">
                                             <img src="<%# Eval("Avatar") %>" />
-                                        </div>
+                                        </a>
                                     </div>
                                     <div class="tg-hovercontent">
                                         <div class="tg-description">

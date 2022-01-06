@@ -55,11 +55,6 @@ public partial class Checkout : System.Web.UI.Page
             ucMessage.ShowError("Vui lòng nhập số điện thoại khách hàng !");
             return;
         }
-        //if (item.Email == string.Empty)
-        //{
-        //    ucMessage.ShowError("Vui lòng nhập email khách hàng !");
-        //    return;
-        //}
         if (item.Address == string.Empty)
         {
             ucMessage.ShowError("Vui lòng nhập địa chỉ khách hàng !");
@@ -94,7 +89,7 @@ public partial class Checkout : System.Web.UI.Page
         {
             //Thanh toán tại nganluong
             string returnUrl = "{0}/CheckoutComplete.aspx".StringFormat(baseUrl);
-            string transaction_info = "Quốc Minh thanh toán đơn hàng có mã số {0}".StringFormat(item.OrderID);
+            string transaction_info = "Thái Hảo thanh toán đơn hàng có mã số {0}".StringFormat(item.OrderID);
             string order_code = item.OrderID.ToString();
 
             string receiver = "";

@@ -89,10 +89,10 @@
                                                                             <img alt="image description" src='<%# Eval("Avatar") %>' />
                                                                         </div>
                                                                     </div>
-                                                                    <a class="tg-btnaddtowishlist" href="javascript:void(0);">
+                                                                    <%-- <a class="tg-btnaddtowishlist" href="javascript:void(0);">
                                                                         <i class="icon-heart"></i>
                                                                         <span>Thêm yêu thích</span>
-                                                                    </a>
+                                                                    </a>--%>
                                                                 </figure>
                                                                 <div class="tg-postbookcontent">
                                                                     <ul class="tg-bookscategories">
